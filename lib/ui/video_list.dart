@@ -8,22 +8,8 @@ class VideoList extends StatelessWidget {
     return ListView(
       children: const <Widget>[
         _ListCard(title: 'Mee Kari'),
-        // Card(
-        //     child: Column(children: <Widget>[
-        //   Column(
-        //     children: <Widget>[
-        //       const ListTile(
-        //         leading: Icon(Icons.cake),
-        //         title: Text('Video video'),
-        //       ),
-        //       Stack(
-        //           alignment: FractionalOffset.bottomRight +
-        //               const FractionalOffset(-0.1, -0.1),
-        //           children: <Widget>[
-        //           ]),
-        //     ],
-        //   ),
-        // ])),
+        _ListCard(title: 'Nasi Ayam'),
+        _ListCard(title: 'Kerabu Maggi'),
       ],
     );
   }
@@ -44,22 +30,6 @@ class _ListCard extends StatelessWidget {
         children: <Widget>[
           ListTile(
             title: Text(title),
-          ),
-          ButtonBar(
-            children: <Widget>[
-              TextButton(
-                child: const Text('BUY'),
-                onPressed: () {
-                  /* ... */
-                },
-              ),
-              // TextButton(
-              //   child: const Text('SELL TICKETS'),
-              //   onPressed: () {
-              //     /* ... */
-              //   },
-              // ),
-            ],
           ),
         ],
       ),

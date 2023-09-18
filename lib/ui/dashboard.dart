@@ -11,7 +11,7 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   @override
-  Widget build(BuildContext context) { 
+  Widget build(BuildContext context) {
     return DefaultTabController(
       length: 3,
       child: Scaffold(
@@ -20,20 +20,20 @@ class _DashboardState extends State<Dashboard> {
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.list), text: 'Resepi Masakan'),
-              Tab(icon: Icon(Icons.cloud), text: 'Remote'),
+              Tab(icon: Icon(Icons.question_mark), text: 'Masak Apa Harini'),
+              Tab(icon: Icon(Icons.book), text: 'Resepi Masakan'),
               Tab(icon: Icon(Icons.heart_broken), text: 'Favorit'),
             ],
           ),
         ),
         body: const TabBarView(
           children: <Widget>[
-            VideoList(),
             InitialVideo(),
+            VideoList(),
             InitialVideo(),
           ],
         ),
       ),
-    );   
+    );
   }
 }
