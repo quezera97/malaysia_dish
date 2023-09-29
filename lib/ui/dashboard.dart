@@ -20,8 +20,8 @@ class _DashboardState extends State<Dashboard> {
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.book), text: 'Resepi Masakan'),
               Tab(icon: Icon(Icons.question_mark), text: 'Masak Apa Harini'),
+              Tab(icon: Icon(Icons.book), text: 'Resepi Masakan'),
               Tab(icon: Icon(Icons.heart_broken), text: 'Favorit'),
             ],
           ),
