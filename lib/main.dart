@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'ui/dashboard.dart';
 
-void main() async {
+void main() {
   runApp(const MyApp());
 }
 

@@ -10,23 +10,15 @@ class InitialVideo extends StatefulWidget {
 }
 
 class _InitialVideoState extends State<InitialVideo> {
-  late YoutubePlayerController _controller1;
-  late YoutubePlayerController _controller2;
+  late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
 
-    _controller1 = YoutubePlayerController(
-      initialVideoId: getVideoId1(),
-      flags: const YoutubePlayerFlags(
-        autoPlay: false,
-        mute: false,
-      ),
-    );
-    _controller2 = YoutubePlayerController(
-      initialVideoId: getVideoId2(),
+    _controller = YoutubePlayerController(
+      initialVideoId: getVideoId(),
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: false,
@@ -34,17 +26,9 @@ class _InitialVideoState extends State<InitialVideo> {
     );
   }
 
-  String getVideoId1(){
-    var urlToId = YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=6uZy86ePgO0&ab_channel=JYPEntertainment");
-
-    setState(() {
-      urlToId;
-    });
-
-    return urlToId!;
-  }
-  String getVideoId2(){
-    var urlToId = YoutubePlayer.convertUrlToId("https://www.youtube.com/watch?v=uHHIM_fWTf8&list=RDuHHIM_fWTf8&start_radio=1&ab_channel=MusicChannelHM");
+  String getVideoId() {
+    var urlToId = YoutubePlayer.convertUrlToId(
+        "https://www.youtube.com/watch?v=6uZy86ePgO0&ab_channel=JYPEntertainment");
 
     setState(() {
       urlToId;
@@ -55,8 +39,9 @@ class _InitialVideoState extends State<InitialVideo> {
 
   @override
   Widget build(BuildContext context) {
-     return Scaffold(
-      body: Column(
+    return Scaffold(
+        body: SingleChildScrollView(
+      child: Column(
         children: [
           AnimSearchBar(
             width: 400,
@@ -72,17 +57,12 @@ class _InitialVideoState extends State<InitialVideo> {
             },
           ),
           YoutubePlayer(
-            controller: _controller1,
-            showVideoProgressIndicator: true,
-            progressIndicatorColor: Colors.blueAccent,
-          ),
-          YoutubePlayer(
-            controller: _controller2,
+            controller: _controller,
             showVideoProgressIndicator: true,
             progressIndicatorColor: Colors.blueAccent,
           ),
         ],
-      )
-    );
+      ),
+    ));
   }
 }
