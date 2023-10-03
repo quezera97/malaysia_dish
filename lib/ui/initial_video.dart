@@ -40,29 +40,30 @@ class _InitialVideoState extends State<InitialVideo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SingleChildScrollView(
-      child: Column(
-        children: [
-          AnimSearchBar(
-            width: 400,
-            textController: textController,
-            onSuffixTap: () {
-              setState(() {
-                textController.clear();
-              });
-            },
-            rtl: true,
-            onSubmitted: (String value) {
-              print("onSubmitted value: " + value);
-            },
-          ),
-          YoutubePlayer(
-            controller: _controller,
-            showVideoProgressIndicator: true,
-            progressIndicatorColor: Colors.blueAccent,
-          ),
-        ],
-      ),
-    ));
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            AnimSearchBar(
+              width: 400,
+              textController: textController,
+              onSuffixTap: () {
+                setState(() {
+                  textController.clear();
+                });
+              },
+              rtl: true,
+              onSubmitted: (String value) {
+                print("onSubmitted value: " + value);
+              },
+            ),
+            YoutubePlayer(
+              controller: _controller,
+              showVideoProgressIndicator: true,
+              progressIndicatorColor: Colors.blueAccent,
+            ),
+          ],
+        ),
+      )
+    );
   }
 }

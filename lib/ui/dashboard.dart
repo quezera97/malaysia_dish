@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'initial_video.dart';
-import 'video_list.dart';
+import 'popular_dish_list.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -20,7 +20,7 @@ class _DashboardState extends State<Dashboard> {
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[
-              Tab(icon: Icon(Icons.star), text: 'Signature Dish'),
+              Tab(icon: Icon(Icons.star), text: 'Popular Dish'),
               Tab(icon: Icon(Icons.book), text: 'Resepi Masakan'),
               Tab(icon: Icon(Icons.heart_broken), text: 'Favorit'),
             ],
@@ -28,7 +28,7 @@ class _DashboardState extends State<Dashboard> {
         ),
         body: const TabBarView(
           children: <Widget>[
-            VideoList(),
+            PopularDishList(),
             InitialVideo(),
             InitialVideo(),
           ],
