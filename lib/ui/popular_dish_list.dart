@@ -9,6 +9,7 @@ import '../enum/popularDishByState/perlis__url.dart';
 import '../enum/popularDishByState/pinang_url.dart';
 import '../enum/popularDishByState/sabah_url.dart';
 import '../enum/popularDishByState/sarawak_url.dart';
+import '../enum/popularDishByState/terengganu_url.dart';
 import '../enum/state_popular_dish_list.dart';
 
 import '../enum/popularDishByState/kelantan_url.dart';
@@ -83,6 +84,11 @@ List<StateDishInfo> stateDishInfoList = [
     stateName: StateEnum.sarawak,
     statePopularDish: StatePopularDishList.sarawak().dishes,
     statePopularDishUrl: sarawakUrl,
+  ),
+  StateDishInfo(
+    stateName: StateEnum.terengganu,
+    statePopularDish: StatePopularDishList.terengganu().dishes,
+    statePopularDishUrl: terengganuUrl,
   ),
 ];
 

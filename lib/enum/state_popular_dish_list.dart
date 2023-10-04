@@ -7,10 +7,6 @@ class StatePopularDishList {
 
   StatePopularDishList(this.stateName, this.dishes);
 
-  factory StatePopularDishList.klselangor() => StatePopularDishList(
-      StateEnum.klselangor,
-      ['Nasi Ambeng', 'Satay', 'Rendang', 'Roti Canai', 'Laksa']);
-
   factory StatePopularDishList.johor() =>
       StatePopularDishList(StateEnum.johor, [
         PopularDishEnum.meeBandung,
@@ -108,7 +104,12 @@ class StatePopularDishList {
         PopularDishEnum.meeTomatoRangup,
       ]);
 
-  factory StatePopularDishList.terengganu() => StatePopularDishList(
-      StateEnum.terengganu,
-      ['Nasi Dagang', 'Keropok Lekor', 'Satar', 'Pulut Lepa', 'Laksam']);
+  factory StatePopularDishList.terengganu() =>
+      StatePopularDishList(StateEnum.terengganu, [
+        PopularDishEnum.nasiDagang,
+        PopularDishEnum.keropokLekor,
+        PopularDishEnum.sata,
+        PopularDishEnum.pulutPanggang,
+        PopularDishEnum.laksaTerengganu,
+      ]);
 }
