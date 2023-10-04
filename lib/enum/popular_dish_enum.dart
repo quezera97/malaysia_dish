@@ -17,5 +17,10 @@ class PopularDishEnum {
   static String get rendangLokan => 'Rendang Lokan';
   static String get masakLemakDaunSetangki => 'Masak Lemak Daun Setangki';
   static String get laokAramJada => 'Laok Aram Jada';
-  // static String get lontong => 'Lontong';
+  //kelantan
+  static String get nasiKerabu => 'Nasi Kerabu';
+  static String get laksam => 'Laksam';
+  static String get ayamPercik => 'Ayam Percik';
+  static String get nasiTumpang => 'Nasi Tumpang';
+  static String get meeCelop => 'Mee Celop';
 }

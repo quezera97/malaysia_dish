@@ -4,6 +4,7 @@ import 'package:malaysia_recipe/ui/recipe/popular_dish_video.dart';
 import '../enum/malaysia_states_enum.dart';
 import '../enum/state_popular_dish_list.dart';
 
+import '../enum/popularDishByState/kelantan_url.dart';
 import '../enum/popularDishByState/nismilan_url.dart';
 import '../enum/popularDishByState/johor_url.dart';
 import '../enum/popularDishByState/melaka_url.dart';
@@ -35,6 +36,11 @@ List<StateDishInfo> stateDishInfoList = [
     stateName: StateEnum.melaka,
     statePopularDish: StatePopularDishList.melaka().dishes,
     statePopularDishUrl: melakaUrl,
+  ),
+  StateDishInfo(
+    stateName: StateEnum.kelantan,
+    statePopularDish: StatePopularDishList.kelantan().dishes,
+    statePopularDishUrl: kelantanUrl,
   ),
 ];
 
