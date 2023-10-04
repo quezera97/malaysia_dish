@@ -4,6 +4,8 @@ import 'package:malaysia_recipe/ui/recipe/popular_dish_video.dart';
 import '../enum/malaysia_states_enum.dart';
 import '../enum/popularDishByState/kedah_url.dart';
 import '../enum/popularDishByState/pahang_url.dart';
+import '../enum/popularDishByState/perak_url.dart';
+import '../enum/popularDishByState/perlis__url.dart';
 import '../enum/state_popular_dish_list.dart';
 
 import '../enum/popularDishByState/kelantan_url.dart';
@@ -53,6 +55,16 @@ List<StateDishInfo> stateDishInfoList = [
     stateName: StateEnum.pahang,
     statePopularDish: StatePopularDishList.pahang().dishes,
     statePopularDishUrl: pahangUrl,
+  ),
+  StateDishInfo(
+    stateName: StateEnum.perak,
+    statePopularDish: StatePopularDishList.perak().dishes,
+    statePopularDishUrl: perakUrl,
+  ),
+  StateDishInfo(
+    stateName: StateEnum.perlis,
+    statePopularDish: StatePopularDishList.perlis().dishes,
+    statePopularDishUrl: perlisUrl,
   ),
 ];
 

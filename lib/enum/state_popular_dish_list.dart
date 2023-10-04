@@ -67,20 +67,19 @@ class StatePopularDishList {
 
   factory StatePopularDishList.perak() =>
       StatePopularDishList(StateEnum.perak, [
-        'Ipoh Hor Fun',
-        'Taugeh Chicken Rice',
-        'Char Kway Teow',
-        'Ayam Taugeh',
-        'Tau Foo Fah'
+        PopularDishEnum.rendangTok,
+        PopularDishEnum.ikanPindangDaunSeniar,
+        PopularDishEnum.nasiLemuni,
+        PopularDishEnum.telurDadarIkanLoma,
+        PopularDishEnum.kebebe,
       ]);
 
   factory StatePopularDishList.perlis() =>
       StatePopularDishList(StateEnum.perlis, [
-        'Ikan Bakar',
-        'Laksa Perlis',
-        'Roti Doll',
-        'Pulut Panggang',
-        'Kuih Lompang'
+        PopularDishEnum.laksaPerlis,
+        PopularDishEnum.nasiUlam,
+        PopularDishEnum.pulutHarumManis,
+        PopularDishEnum.jerukMaman,
       ]);
 
   factory StatePopularDishList.pinang() => StatePopularDishList(
