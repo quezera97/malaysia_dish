@@ -82,20 +82,30 @@ class StatePopularDishList {
         PopularDishEnum.jerukMaman,
       ]);
 
-  factory StatePopularDishList.pinang() => StatePopularDishList(
-      StateEnum.pinang,
-      ['Char Kway Teow', 'Asam Laksa', 'Hokkien Mee', 'Nasi Kandar', 'Cendol']);
+  factory StatePopularDishList.pinang() =>
+      StatePopularDishList(StateEnum.pinang, [
+        PopularDishEnum.laksaPenang,
+        PopularDishEnum.charKueyTeow,
+        PopularDishEnum.meeGorengMamakDaging,
+        PopularDishEnum.nasiKandar,
+      ]);
 
-  factory StatePopularDishList.sabah() => StatePopularDishList(StateEnum.sabah,
-      ['Soto', 'Hinava', 'Tuaran Mee', 'Nasi Goreng Kampung', 'Linopot']);
+  factory StatePopularDishList.sabah() =>
+      StatePopularDishList(StateEnum.sabah, [
+        PopularDishEnum.hinava,
+        PopularDishEnum.meeTuaran,
+        PopularDishEnum.linopot,
+        PopularDishEnum.barobbo,
+        PopularDishEnum.burasak,
+      ]);
 
   factory StatePopularDishList.sarawak() =>
       StatePopularDishList(StateEnum.sarawak, [
-        'Laksa Sarawak',
-        'Kolo Mee',
-        'Sarawak Kek Lapis',
-        'Manok Pansoh',
-        'Umai'
+        PopularDishEnum.meeKolok,
+        PopularDishEnum.laksaSarawak,
+        PopularDishEnum.manokPansoh,
+        PopularDishEnum.supTerungAsam,
+        PopularDishEnum.meeTomatoRangup,
       ]);
 
   factory StatePopularDishList.terengganu() => StatePopularDishList(
