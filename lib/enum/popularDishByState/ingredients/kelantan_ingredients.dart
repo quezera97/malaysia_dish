@@ -96,7 +96,24 @@ Map<String, String> kelantanIngredients = {
     </ul>
    """,
   PopularDishEnum.ayamPercik: """
-      
+      <h5>Bahan-bahan untuk ayam:</h5>
+      <ul>
+          <li>1 ekor ayam (dipotong 4)</li>
+          <li>4 ulas bawang putih</li>
+          <li>2cm halia</li>
+          <li>Sedikit garam</li>
+          <li>4 batang serai</li>
+      </ul>
+
+      <h5>Bahan-bahan untuk kuah percik:</h5>
+      <ul>
+          <li>2 cawan santan</li>
+          <li>2cm halia</li>
+          <li>4 ulas bawang merah (dipotong halus)</li>
+          <li>4 batang serai (dipotong halus)</li>
+          <li>Sedikit gula</li>
+          <li>Sedikit garam</li>
+      </ul>
     """,
   PopularDishEnum.nasiTumpang: """ 
       <h5>Bahan-bahan (Hidangan untuk 5 orang):</h5>

@@ -4,6 +4,9 @@ import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart
 import '../../enum/malaysia_states_enum.dart';
 import '../../enum/popularDishByState/ingredients/johor_ingredients.dart';
 import '../../enum/popularDishByState/ingredients/kedah_ingredients.dart';
+import '../../enum/popularDishByState/ingredients/kelantan_ingredients.dart';
+import '../../enum/popularDishByState/ingredients/melaka_ingredients.dart';
+import '../../enum/popularDishByState/ingredients/nismilan_ingredients.dart';
 
 class PopularDishIngredients extends StatelessWidget {
   const PopularDishIngredients(
@@ -23,6 +26,18 @@ class PopularDishIngredients extends StatelessWidget {
     } else if (stateName == StateEnum.kedah) {
       selectedHtmlWidget = HtmlWidget(
         kedahIngredients[dishName]!,
+      );
+    } else if (stateName == StateEnum.kelantan) {
+      selectedHtmlWidget = HtmlWidget(
+        kelantanIngredients[dishName]!,
+      );
+    } else if (stateName == StateEnum.melaka) {
+      selectedHtmlWidget = HtmlWidget(
+        melakaIngredients[dishName]!,
+      );
+    } else if (stateName == StateEnum.nismilan) {
+      selectedHtmlWidget = HtmlWidget(
+        nismilanIngredients[dishName]!,
       );
     }
 

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
 
-class InitialVideo extends StatefulWidget {
-  const InitialVideo({super.key});
+class Player extends StatefulWidget {
+  const Player({super.key});
 
   @override
-  State<InitialVideo> createState() => _InitialVideoState();
+  State<Player> createState() => _PlayerState();
 }
 
-class _InitialVideoState extends State<InitialVideo> {
+class _PlayerState extends State<Player> {
   late YoutubePlayerController _controller;
   TextEditingController textController = TextEditingController();
 
@@ -40,7 +40,9 @@ class _InitialVideoState extends State<InitialVideo> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+        body: SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(10.5),
         child: Column(
           children: [
             AnimSearchBar(
@@ -63,7 +65,7 @@ class _InitialVideoState extends State<InitialVideo> {
             ),
           ],
         ),
-      )
-    );
+      ),
+    ));
   }
 }
