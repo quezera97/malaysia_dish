@@ -128,6 +128,7 @@ class _PopularDishListState extends State<PopularDishList> {
                                     Navigator.of(context).push(
                                       MaterialPageRoute(
                                         builder: (context) => PopularDishVideo(
+                                          stateName: stateInfo.stateName,
                                           nameOfDish: dish,
                                           youtubeUrl: dishURL, // Pass the URL
                                         ),

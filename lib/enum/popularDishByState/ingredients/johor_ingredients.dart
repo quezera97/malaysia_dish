@@ -1,8 +1,7 @@
 import '../../popular_dish_enum.dart';
 
 Map<String, String> johorIngredients = {
-  PopularDishEnum.meeBandung:
-    """
+  PopularDishEnum.meeBandung: """
       <h5> Bahan-bahan tumbuk kasar: </h5>
       <ul>
         <li>2 sudu besar udang kering</li>
@@ -42,8 +41,7 @@ Map<String, String> johorIngredients = {
         <li>limau nipis</li>
       </ul>
     """,
-  PopularDishEnum.laksaJohor: 
-    """
+  PopularDishEnum.laksaJohor: """
       <h5>Bahan-bahan untuk kuah:</h5>
       <ul>
         <li>1.5kg ikan parang</li>
@@ -98,8 +96,7 @@ Map<String, String> johorIngredients = {
           <li>Lobak masin</li>
       </ul>
     """,
-  PopularDishEnum.meeRebus: 
-    """
+  PopularDishEnum.meeRebus: """
       <h5>Bahan untuk kuah:</h5>
         <ul>
           <li>1 kilo daging</li>
@@ -146,8 +143,7 @@ Map<String, String> johorIngredients = {
           <li>(Boleh tambah 3 sb tepung jangung untuk lebih rangup)</li>
       </ul>
     """,
-  PopularDishEnum.lontong: 
-    """
+  PopularDishEnum.lontong: """
       <h5>Bahan-bahan untuk kisar halus:</h5>
       <ul>
           <li>3 biji bawang merah</li>
@@ -195,15 +191,14 @@ Map<String, String> johorIngredients = {
           <li>Ikan bilis goreng</li>
       </ul>
     """,
-  PopularDishEnum.botokBotok: 
-    """
-      <h2>Bahan:</h2>
+  PopularDishEnum.botokBotok: """
+      <h5>Bahan:</h5>
       <ul>
           <li>3 keping Ikan Tenggiri</li>
           <li>Pelbagai jenis ulam-ulaman</li>
           <li>Minyak untuk menumis</li>
       </ul>
-      <h2>Bahan (A):</h2>
+      <h5>Bahan (A):</h5>
       <ul>
           <li>2 biji Bawang Bombay (saiz sederhana)</li>
           <li>3 ulas Bawang Putih</li>
@@ -216,14 +211,14 @@ Map<String, String> johorIngredients = {
           <li>2 sudu besar Rempah Briyani</li>
           <li>Air secukupnya</li>
       </ul>
-      <h2>Bahan (B):</h2>
+      <h5>Bahan (B):</h5>
       <ul>
           <li>½ cawan Santan</li>
           <li>1 sudu besar Gula Merah</li>
           <li>2 sudu besar Jus Perahan Limau Nipis</li>
           <li>Garam secukupnya</li>
       </ul>
-      <h2>Bahan lain:</h2>
+      <h5>Bahan lain:</h5>
       <ul>
           <li>Daun pisang, setiap satu besaiz 10 inci x 10 inci (25cm x 25cm)</li>
           <li>Lidi secukupnya</li>
