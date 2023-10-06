@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> sarawakUrl = {
   PopularDishEnum.meeKolok: 'https://youtu.be/wVURq4d_a10?si=Aw9vh-fY5YSub9kJ',

@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:malaysia_recipe/enum/popularDishByState/url/johor_url.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
+import '../../enum/popularDishByState/ingredients/johor_ingredients.dart';
 
 class PopularDishVideo extends StatefulWidget {
   const PopularDishVideo({
@@ -45,6 +49,9 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
               ),
               showVideoProgressIndicator: true,
               progressIndicatorColor: Colors.blueAccent,
+            ),
+            Html(
+              data: johorIngredients[widget.nameOfDish],
             ),
           ],
         )

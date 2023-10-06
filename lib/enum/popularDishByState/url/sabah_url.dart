@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> sabahUrl = {
   PopularDishEnum.hinava: 'https://youtu.be/bnweirkdoJc?si=jZ-39c-Ifo35djF_',

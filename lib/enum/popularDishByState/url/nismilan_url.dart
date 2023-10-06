@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> nismilanUrl = {
   PopularDishEnum.masakLemakCiliApi: 'https://youtu.be/5ay6OV1rkCA?si=3i4ShlNKohkGxYn3', //CheNom

@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:malaysia_recipe/ui/recipe/popular_dish_video.dart';
 
 import '../enum/malaysia_states_enum.dart';
-import '../enum/popularDishByState/kedah_url.dart';
-import '../enum/popularDishByState/pahang_url.dart';
-import '../enum/popularDishByState/perak_url.dart';
-import '../enum/popularDishByState/perlis__url.dart';
-import '../enum/popularDishByState/pinang_url.dart';
-import '../enum/popularDishByState/sabah_url.dart';
-import '../enum/popularDishByState/sarawak_url.dart';
-import '../enum/popularDishByState/terengganu_url.dart';
 import '../enum/state_popular_dish_list.dart';
 
-import '../enum/popularDishByState/kelantan_url.dart';
-import '../enum/popularDishByState/nismilan_url.dart';
-import '../enum/popularDishByState/johor_url.dart';
-import '../enum/popularDishByState/melaka_url.dart';
+import '../enum/popularDishByState/url/kedah_url.dart';
+import '../enum/popularDishByState/url/pahang_url.dart';
+import '../enum/popularDishByState/url/perak_url.dart';
+import '../enum/popularDishByState/url/perlis__url.dart';
+import '../enum/popularDishByState/url/pinang_url.dart';
+import '../enum/popularDishByState/url/sabah_url.dart';
+import '../enum/popularDishByState/url/sarawak_url.dart';
+import '../enum/popularDishByState/url/terengganu_url.dart';
+import '../enum/popularDishByState/url/kelantan_url.dart';
+import '../enum/popularDishByState/url/nismilan_url.dart';
+import '../enum/popularDishByState/url/johor_url.dart';
+import '../enum/popularDishByState/url/melaka_url.dart';
 
 class StateDishInfo {
   final String stateName;

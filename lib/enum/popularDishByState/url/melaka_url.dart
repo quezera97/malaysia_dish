@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> melakaUrl = {
   PopularDishEnum.asamPedas: 'https://youtu.be/jdmrryN4eLk?si=1SO4fC81DVIxOViv', //CheNom

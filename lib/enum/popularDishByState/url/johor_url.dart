@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> johorUrl = {
   PopularDishEnum.meeBandung: 'https://www.youtube.com/watch?v=OhFUjXAbLck', //CheNom

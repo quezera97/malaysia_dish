@@ -16,7 +16,7 @@ class _DashboardState extends State<Dashboard> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Video player example'),
+          title: const Text('Malaysia Popular Dish by States'),
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[

@@ -1,4 +1,4 @@
-import '../popular_dish_enum.dart';
+import '../../popular_dish_enum.dart';
 
 Map<String, String> terengganuUrl = {
   PopularDishEnum.sata: 'https://youtu.be/_7SFLsjl-3c?si=3YZ7hnn_cj8A_Shx',
