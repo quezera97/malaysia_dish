@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:malaysia_recipe/enum/popularDishByState/url/nismilan_url.dart';
 import 'package:malaysia_recipe/ui/popular_dish/popular_dish_ingredient.dart';
+import 'package:malaysia_recipe/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../enum/popularDishByState/url/melaka_url.dart';
@@ -73,6 +74,7 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
           ],
         ),
       )),
+      floatingActionButton: FloatButtonWidget(url: widget.youtubeUrl),
     );
   }
 }
