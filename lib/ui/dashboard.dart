@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'favorite/favorite_play_list.dart';
 import 'player/player.dart';
 import 'popular_dish/popular_dish_list.dart';
 
@@ -16,13 +17,13 @@ class _DashboardState extends State<Dashboard> {
       length: 3,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Malaysia Popular Dish by States'),
+          title: const Text('Malaysia Popular Dish'),
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[
               Tab(icon: Icon(Icons.star), text: 'Popular Dish'),
-              Tab(icon: Icon(Icons.book), text: 'Resepi Masakan'),
               Tab(icon: Icon(Icons.play_arrow), text: 'Player'),
+              Tab(icon: Icon(Icons.favorite), text: 'Favorite'),
             ],
           ),
         ),
@@ -30,7 +31,7 @@ class _DashboardState extends State<Dashboard> {
           children: <Widget>[
             PopularDishList(),
             Player(),
-            Player(),
+            FavoritePlayList(),
           ],
         ),
       ),
