@@ -37,6 +37,7 @@ class _PlayerState extends State<Player> {
         flags: const YoutubePlayerFlags(
           autoPlay: false,
           mute: false,
+          loop: true,
         ))
       ..addListener(listener);
     _videoMetaData = const YoutubeMetaData();
@@ -63,6 +64,9 @@ class _PlayerState extends State<Player> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          title: const Text('Youtube Player ( No Ads! )'),
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(5),
@@ -70,6 +74,7 @@ class _PlayerState extends State<Player> {
             children: [
               AnimSearchBar(
                 width: 400,
+                helpText: 'Insert any Youtube URL...',
                 textController: textController,
                 onSuffixTap: () {
                   setState(() {
@@ -110,6 +115,16 @@ class _PlayerState extends State<Player> {
                           _isPlayerReady = true;
                         },
                       ),
+                      const SizedBox(height: 10),
+                      Text(
+                        _videoMetaData.author,
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                      const SizedBox(height: 10),
                       Row(
                         children: <Widget>[
                           const Text(
@@ -138,8 +153,8 @@ class _PlayerState extends State<Player> {
                           IconButton(
                             icon: Icon(
                               _controller.value.isPlaying
-                                  ? Icons.pause
-                                  : Icons.play_arrow,
+                                  ? Icons.pause_circle_outline
+                                  : Icons.play_circle_outline,
                             ),
                             onPressed: _isPlayerReady
                                 ? () {

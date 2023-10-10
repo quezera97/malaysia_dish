@@ -89,8 +89,8 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                     ),
                   ] else ...[
                     ListTile(
-                      leading: const Icon(Icons.favorite),
-                      title: const Text('Add to Favorites'),
+                      leading: const Icon(Icons.favorite, color: Colors.redAccent),
+                      title: const Text('Add to Favorites', style: TextStyle(fontWeight: FontWeight.bold)),
                       onTap: () {
                         if (widget.url != null) {
                           addToFav(widget.url);
@@ -105,8 +105,8 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                     ),
                   ],
                   ListTile(
-                    leading: const Icon(Icons.share),
-                    title: const Text('Share'),
+                    leading: const Icon(Icons.share, color: Colors.black),
+                    title: const Text('Share', style: TextStyle(fontWeight: FontWeight.bold)),
                     onTap: () {
                       if (widget.url != null) {
                         Share.share(widget.url!);

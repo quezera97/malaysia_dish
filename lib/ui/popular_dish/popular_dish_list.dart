@@ -102,50 +102,53 @@ class PopularDishList extends StatefulWidget {
 class _PopularDishListState extends State<PopularDishList> {
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: stateDishInfoList.length,
-      itemBuilder: (context, index) {
-        var stateInfo = stateDishInfoList[index];
-
-        return Card(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              ExpansionTile(
-                title: Text(stateInfo.stateName),
-                children: [
-                  ListTile(
-                    subtitle: Column(
-                      children: stateInfo.statePopularDish
-                          .map((dish) => ListTile(
-                                trailing: const Icon(Icons.arrow_right),
-                                title: Text(dish),
-                                onTap: () {
-                                  String? dishURL =
-                                      stateInfo.statePopularDishUrl[dish];
-
-                                  if (dishURL != null) {
-                                    Navigator.of(context).push(
-                                      MaterialPageRoute(
-                                        builder: (context) => PopularDishVideo(
-                                          stateName: stateInfo.stateName,
-                                          nameOfDish: dish,
-                                          youtubeUrl: dishURL, // Pass the URL
+    return Padding(
+      padding: const EdgeInsets.all(5.0),
+      child: ListView.builder(
+        itemCount: stateDishInfoList.length,
+        itemBuilder: (context, index) {
+          var stateInfo = stateDishInfoList[index];
+    
+          return Card(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                ExpansionTile(
+                  title: Text(stateInfo.stateName),
+                  children: [
+                    ListTile(
+                      subtitle: Column(
+                        children: stateInfo.statePopularDish
+                            .map((dish) => ListTile(
+                                  trailing: const Icon(Icons.arrow_right),
+                                  title: Text(dish),
+                                  onTap: () {
+                                    String? dishURL =
+                                        stateInfo.statePopularDishUrl[dish];
+    
+                                    if (dishURL != null) {
+                                      Navigator.of(context).push(
+                                        MaterialPageRoute(
+                                          builder: (context) => PopularDishVideo(
+                                            stateName: stateInfo.stateName,
+                                            nameOfDish: dish,
+                                            youtubeUrl: dishURL, // Pass the URL
+                                          ),
                                         ),
-                                      ),
-                                    );
-                                  }
-                                },
-                              ))
-                          .toList(),
+                                      );
+                                    }
+                                  },
+                                ))
+                            .toList(),
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        );
-      },
+                  ],
+                ),
+              ],
+            ),
+          );
+        },
+      ),
     );
   }
 }

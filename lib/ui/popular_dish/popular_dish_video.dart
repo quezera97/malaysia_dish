@@ -64,6 +64,7 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
                   controlsVisibleAtStart: true,
                   mute: false,
                   startAt: getStartAt(widget.youtubeUrl),
+                  loop: true,
                 ),
               ),
               showVideoProgressIndicator: true,
