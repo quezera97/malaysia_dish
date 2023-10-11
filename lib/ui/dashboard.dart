@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:malaysia_recipe/setting/settings.dart';
 import 'favorite/favorite_play_list.dart';
 import 'player/player.dart';
 import 'popular_dish/popular_dish_list.dart';
@@ -33,6 +34,22 @@ class _DashboardState extends State<Dashboard> {
                 },
                 child: const Icon(
                   Icons.playlist_play_sharp,
+                  size: 26.0,
+                ),
+              )
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => const Settings(),
+                    ),
+                  );
+                },
+                child: const Icon(
+                  Icons.settings,
                   size: 26.0,
                 ),
               )

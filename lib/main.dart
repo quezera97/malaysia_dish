@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 import 'ui/dashboard.dart';
+import 'widget/theme_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => ThemeProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Malaysiaan Dish',
+      title: 'Malaysian Dish',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: Provider.of<ThemeProvider>(context).currentTheme,
       home: const Dashboard(),
     );
   }
