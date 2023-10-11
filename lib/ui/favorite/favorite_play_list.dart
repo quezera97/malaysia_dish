@@ -15,8 +15,8 @@ class FavoritePlayList extends StatefulWidget {
 class _FavoritePlayListState extends State<FavoritePlayList> {
   List<String> dishUrl = [];
   List<YoutubePlayerController> _controllers = [];
-  List<String> thumbnails = [];
-  List<String> youtubeTitle = [];
+  var responseYoutubeApi = [];
+  int indexPrefs = 0;
 
   @override
   void initState() {
@@ -39,33 +39,28 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
           ),
         );
       }).toList();
-
-      thumbnails = dishUrl.map((videoUrl) {
-        return getVideoThumbnailUrl(videoUrl);
-      }).toList();
     });
   }
 
-  Future<String> callYoutubeApi(String videoUrl) async {
-    try {
-      final youtubeApi = YoutubeApi();
-      final title = await youtubeApi.getYoutubeTitle(videoUrl);
+  Future<Map<String, dynamic>> callYoutubeApi(String videoUrl) async {
+    final apiService = YoutubeApi();
 
-      return title;
+    try {
+      final videoDetailsMap = await apiService.getYoutubeDetails(videoUrl);
+
+      if (videoDetailsMap.isNotEmpty) {
+        return videoDetailsMap;
+      } else {
+        return {};
+      }
     } catch (e) {
-      print("Error fetching YouTube title: $e");
-      return "Error";
+      return {};
     }
   }
 
   String getVideoId(url) {
     String? urlToId = YoutubePlayer.convertUrlToId(url);
     return urlToId ?? '';
-  }
-
-  String getVideoThumbnailUrl(url) {
-    String? videoId = getVideoId(url);
-    return 'https://img.youtube.com/vi/$videoId/0.jpg';
   }
 
   @override
@@ -83,16 +78,24 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
 
     _controllers[index].dispose();
     _controllers.removeAt(index);
-    thumbnails.removeAt(index);
 
     setState(() {
       dishUrl = List<String>.from(dishUrl);
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
+    final snackBar = SnackBar(
+      content: const Text('Delete from favorite'),
+      action: SnackBarAction(
+        label: 'Yes!',
+        onPressed: () {
+          removeVideoFromFavorites(indexPrefs);
+        },
+      ),
+    );
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(5.0),
@@ -105,7 +108,7 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(10.0),
               ),
-              child: FutureBuilder<String>(
+              child: FutureBuilder(
                 future: callYoutubeApi(dishUrl[index]),
                 builder: (context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
@@ -121,18 +124,47 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
                   } else if (snapshot.hasError) {
                     return Text("Error: ${snapshot.error}");
                   } else {
-                    final youtubeTitle = snapshot.data ?? "No title available";
-
-                    return ListTile(
-                      leading: Image.network(thumbnails[index]),
-                      title: Text(youtubeTitle),
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const FavoritePlayer(),
+                    var videoDetails = snapshot.data;
+                    return SizedBox(
+                      height: 90,
+                      child: ListTile(
+                        contentPadding: EdgeInsets.all(10),
+                        leading: InkWell(
+                          child: Image.network(
+                            videoDetails!['thumbnailUrl'],
+                            fit: BoxFit.cover,
                           ),
-                        );
-                      },
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => FavoritePlayer(
+                                  controllers: _controllers, 
+                                  index: index,
+                                  title: videoDetails['title'],
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                        title: Text(
+                          videoDetails['title'],
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        subtitle: Text(
+                          videoDetails['authorName'],
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        trailing: IconButton(
+                          icon: const Icon(Icons.more_vert),
+                          onPressed: () {
+                            indexPrefs = index;
+
+                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          },
+                        ),
+                      ),
                     );
                   }
                 },
@@ -144,32 +176,3 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
     );
   }
 }
-
-
-
-
-                // child: Column(
-                //   children: [
-                    // YoutubePlayer(
-                    //   key: ObjectKey(_controllers[index]),
-                    //   controller: _controllers[index],
-                    //   showVideoProgressIndicator: true,
-                    // ),
-                    // const SizedBox(height: 10),
-                    // Image.network(thumbnails[index]),
-                    // const SizedBox(height: 10),
-                    // ElevatedButton(
-                    //   onPressed: () {
-                    //     removeVideoFromFavorites(index);
-                    //   },
-                    //   style: ElevatedButton.styleFrom(
-                    //     foregroundColor: Colors.white,
-                    //     backgroundColor: Colors.red,
-                    //     shape: RoundedRectangleBorder(
-                    //       borderRadius: BorderRadius.circular(5.0),
-                    //     ),
-                    //   ),
-                    //   child: const Text('Remove from Fav'),
-                    // )
-                //   ],
-                // ),

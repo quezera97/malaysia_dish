@@ -21,7 +21,8 @@ class _RecipeListState extends State<RecipeList> {
   List allDishIngredients = [];
   List allDishUrls = [];
   List<Map<String, String>> combinedIngredientsAndUrls = [];
-  int randomIndex = 0;  
+  int randomIndex = 0;
+  var selectedCombined = {};
 
   @override
   void initState() {
@@ -32,9 +33,11 @@ class _RecipeListState extends State<RecipeList> {
     combinedIngredientsAndUrls = combineIngredientsAndUrls();
 
     randomIndex = Random().nextInt(combinedIngredientsAndUrls.length);
-    
+
+    selectedCombined = combinedIngredientsAndUrls[randomIndex];
+
     _controller = YoutubePlayerController(
-      initialVideoId: getVideoId(combinedIngredientsAndUrls[randomIndex]['url'].toString()),
+      initialVideoId: getVideoId(selectedCombined['url'].toString()),
       flags: const YoutubePlayerFlags(
         autoPlay: false,
         mute: false,
@@ -83,14 +86,14 @@ class _RecipeListState extends State<RecipeList> {
                     progressIndicatorColor: Colors.blueAccent,
                   ),
                   const SizedBox(height: 10), 
-                  HtmlWidget(combinedIngredientsAndUrls[randomIndex]['ingredients'].toString()),
+                  HtmlWidget(selectedCombined['ingredients'].toString()),
                 ],
               ),
             ),
           ),
         ),
       ),
-      floatingActionButton: FloatButtonWidget(url: combinedIngredientsAndUrls[0]['url'].toString()),
+      floatingActionButton: FloatButtonWidget(url: selectedCombined['url'].toString()),
     );
   }
 }
