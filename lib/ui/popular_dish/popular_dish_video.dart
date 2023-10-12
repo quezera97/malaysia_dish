@@ -27,7 +27,6 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _controller = YoutubePlayerController(
         initialVideoId: getVideoId(widget.youtubeUrl),
