@@ -96,83 +96,101 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
       ),
     );
 
-    return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(5.0),
-        child: ListView.separated(
-          itemCount: _controllers.length,
-          separatorBuilder: (context, _) => const SizedBox(height: 5.0),
-          itemBuilder: (context, index) {
-            return Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: FutureBuilder(
-                future: callYoutubeApi(dishUrl[index]),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return Column(
-                      children: const [
-                        SizedBox(height: 5),
-                        CircularProgressIndicator(),
-                        SizedBox(height: 5),
-                        Text(''),
-                        SizedBox(height: 5),
-                      ],
-                    );
-                  } else if (snapshot.hasError) {
-                    return Text("Error: ${snapshot.error}");
-                  } else {
-                    var videoDetails = snapshot.data;
-                    return SizedBox(
-                      height: 90,
-                      child: ListTile(
-                        contentPadding: EdgeInsets.all(10),
-                        leading: InkWell(
-                          child: Image.network(
-                            videoDetails!['thumbnailUrl'],
-                            fit: BoxFit.cover,
-                          ),
-                          onTap: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute(
-                                builder: (context) => FavoritePlayer(
-                                  controllers: _controllers, 
-                                  index: index,
-                                  title: videoDetails['title'],
+    if(_controllers.isEmpty){
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 100,
+              width: 100,
+              child: Image.asset('lib/assets/no-love.png'),
+            ),
+            const SizedBox(height: 10),
+            const Text('No favorites available!'),
+          ],
+        )
+      );
+    }
+    else{
+      return Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(5.0),
+          child: ListView.separated(
+            itemCount: _controllers.length,
+            separatorBuilder: (context, _) => const SizedBox(height: 5.0),
+            itemBuilder: (context, index) {
+              return Card(
+                elevation: 5,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                child: FutureBuilder(
+                  future: callYoutubeApi(dishUrl[index]),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Column(
+                        children: const [
+                          SizedBox(height: 5),
+                          CircularProgressIndicator(),
+                          SizedBox(height: 5),
+                          Text(''),
+                          SizedBox(height: 5),
+                        ],
+                      );
+                    } else if (snapshot.hasError) {
+                      return Text("Error: ${snapshot.error}");
+                    } else {
+                      var videoDetails = snapshot.data;
+                      return SizedBox(
+                        height: 90,
+                        child: ListTile(
+                          contentPadding: const EdgeInsets.all(10),
+                          leading: InkWell(
+                            child: Image.network(
+                              videoDetails!['thumbnailUrl'],
+                              fit: BoxFit.cover,
+                            ),
+                            onTap: () {
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => FavoritePlayer(
+                                    controllers: _controllers, 
+                                    index: index,
+                                    title: videoDetails['title'],
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                        ),
-                        title: Text(
-                          videoDetails['title'],
-                          maxLines: 2,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        subtitle: Text(
-                          videoDetails['authorName'],
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        trailing: IconButton(
-                          icon: const Icon(Icons.more_vert),
-                          onPressed: () {
-                            indexPrefs = index;
+                              );
+                            },
+                          ),
+                          title: Text(
+                            videoDetails['title'],
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          subtitle: Text(
+                            videoDetails['authorName'],
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          trailing: IconButton(
+                            icon: const Icon(Icons.more_vert),
+                            onPressed: () {
+                              indexPrefs = index;
 
-                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                          },
+                              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                            },
+                          ),
                         ),
-                      ),
-                    );
-                  }
-                },
-              ),
-            );
-          },
+                      );
+                    }
+                  },
+                ),
+              );
+            },
+          ),
         ),
-      ),
-    );
+      );
+    }
   }
 }

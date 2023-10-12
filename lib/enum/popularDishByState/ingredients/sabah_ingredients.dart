@@ -55,7 +55,7 @@ Map<String, String> sabahIngredients = {
           <li>1 ulas Bawang merah</li>
           <li>1 inci Halia</li>
           <li>1/2 sudu kecil Garam</li>
-          <li>1.3 sudu kecil Ajinomoto</li>
+          <li>1/3 sudu kecil Ajinomoto</li>
       </ul>
     """,
   PopularDishEnum.burasak: """ 

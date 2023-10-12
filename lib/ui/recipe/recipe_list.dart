@@ -6,7 +6,6 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../widget/floating_action_button.dart';
 import '../player/play_random_video.dart';
-import '../popular_dish/popular_dish_video.dart';
 import 'collect_recipe.dart';
 
 class RecipeList extends StatefulWidget {
@@ -39,7 +38,8 @@ class _RecipeListState extends State<RecipeList> {
     _controller = YoutubePlayerController(
       initialVideoId: getVideoId(selectedCombined['url'].toString()),
       flags: const YoutubePlayerFlags(
-        autoPlay: false,
+        hideControls: true,
+        autoPlay: true,
         mute: false,
         loop: true,
       ),

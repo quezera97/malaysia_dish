@@ -23,6 +23,24 @@ class PopularDishVideo extends StatefulWidget {
 }
 
 class _PopularDishVideoState extends State<PopularDishVideo> {
+  late YoutubePlayerController _controller;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _controller = YoutubePlayerController(
+      initialVideoId: getVideoId(widget.youtubeUrl),
+      flags: YoutubePlayerFlags(
+        autoPlay: false,
+        controlsVisibleAtStart: true,
+        mute: false,
+        startAt: getStartAt(widget.youtubeUrl),
+        loop: true,
+      )
+    );
+
+  }
   String getVideoId(String videoUrl) {
     var urlToId = YoutubePlayer.convertUrlToId(videoUrl);
 
@@ -47,35 +65,33 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('${widget.nameOfDish} Dish Recipe'),
+    return YoutubePlayerBuilder(
+      player: YoutubePlayer(
+          controller: _controller,
       ),
-      body: SingleChildScrollView(
-          child: Padding(
-        padding: const EdgeInsets.all(10.5),
-        child: Column(
-          children: [
-            YoutubePlayer(
-              controller: YoutubePlayerController(
-                initialVideoId: getVideoId(widget.youtubeUrl),
-                flags: YoutubePlayerFlags(
-                  autoPlay: false,
-                  controlsVisibleAtStart: true,
-                  mute: false,
-                  startAt: getStartAt(widget.youtubeUrl),
-                  loop: true,
+      builder: (context, player){ 
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('${widget.nameOfDish} Dish Recipe'),
+          ),
+          body: SingleChildScrollView(
+              child: Padding(
+            padding: const EdgeInsets.all(10.5),
+            child: Column(
+              children: [
+                YoutubePlayer(
+                  controller: _controller,
+                  showVideoProgressIndicator: true,
+                  progressIndicatorColor: Colors.blueAccent,
                 ),
-              ),
-              showVideoProgressIndicator: true,
-              progressIndicatorColor: Colors.blueAccent,
+                PopularDishIngredients(
+                    stateName: widget.stateName, dishName: widget.nameOfDish),
+              ],
             ),
-            PopularDishIngredients(
-                stateName: widget.stateName, dishName: widget.nameOfDish),
-          ],
-        ),
-      )),
-      floatingActionButton: FloatButtonWidget(url: widget.youtubeUrl),
+          )),
+          floatingActionButton: FloatButtonWidget(url: widget.youtubeUrl),
+        );
+      }
     );
   }
 }

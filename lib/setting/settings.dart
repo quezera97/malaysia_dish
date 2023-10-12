@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:day_night_switcher/day_night_switcher.dart';
-import '../widget/alertPopUp.dart';
+import '../widget/alert_pop_up.dart';
 import '../widget/theme_provider.dart';
-import 'joinTextAboutUs.dart';
-import 'joinTextPolicy.dart';
+import 'join_text_about_us.dart';
+import 'join_text_policy.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -14,12 +14,8 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  String themeMode = 'Change to Dark Mode';
-
   @override
   Widget build(BuildContext context) {
-    final themeProvider = Provider.of<ThemeProvider>(context);
-
     return Scaffold(
       appBar: AppBar(
         title: const Text('Settings'),
@@ -36,16 +32,11 @@ class _SettingsState extends State<Settings> {
                     borderRadius: BorderRadius.circular(10.0),
                   ),
                   child: ListTile(
-                    title: Text(themeMode),
+                    title: const Text('Theme Mode'),
                     trailing: DayNightSwitcher(
-                      isDarkModeEnabled: themeProvider.isDarkModeEnabled,
+                      isDarkModeEnabled: context.read<ThemeProvider>().isDarkModeEnabled,
                       onStateChanged: (value) {
-                        value = themeProvider.isDarkModeEnabled;
-                        setState(() {
-                          themeProvider.toggleTheme();
-                          themeMode =
-                              value == false ? 'Change to Light Mode' : 'Change to Dark Mode';
-                        });
+                        context.read<ThemeProvider>().toggleTheme();
                       },
                     ),
                   ),

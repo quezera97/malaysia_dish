@@ -7,13 +7,14 @@ class AlertPopUp extends StatelessWidget {
   const AlertPopUp(
       {super.key, required this.titleAlert, required this.contentAlert});
 
+  @override
   Widget build(BuildContext context) {
     return AlertDialog(
       title: Text(titleAlert),
       content: Text(contentAlert),
       actions: <Widget>[
         TextButton(
-          child: Text('Close'),
+          child: const Text('Close'),
           onPressed: () {
             Navigator.of(context).pop();
           },

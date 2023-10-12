@@ -9,15 +9,7 @@ String joinedTextAboutUs() {
       'If you have any questions or feedback, please don\'t hesitate to contact us at help.quezera@gmail.com.';
   var lineFive = 'Thank you for using our app!';
 
-  var joinedText = lineOne +
-      '\n\n' +
-      lineTwo +
-      '\n\n' +
-      lineThree +
-      '\n\n\n' +
-      lineFour +
-      '\n\n\n' +
-      lineFive;
+  var joinedText = '$lineOne\n\n$lineTwo\n\n$lineThree\n\n\n$lineFour\n\n\n$lineFive';
 
   return joinedText;
 }

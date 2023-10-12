@@ -114,8 +114,17 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                       Navigator.pop(context);
                     },
                   ),
+                  // ListTile(
+                  //   leading: const Icon(Icons.download, color: Colors.black),
+                  //   title: const Text('Download', style: TextStyle(fontWeight: FontWeight.bold)),
+                  //   onTap: () {
+                  //     if (widget.url != null) {
+                  //       // downloadVideo();
+                  //     }
+                  //   },
+                  // ),
                   ListTile(
-                    title: Text('Remove Prefs'),
+                    title: const Text('Remove Prefs'),
                     onTap: () async {
                       await _prefs.remove('dishUrl');
                     },

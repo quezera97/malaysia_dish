@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
 class ThemeProvider with ChangeNotifier {
-  bool _isDarkModeEnabled = false;
+  late bool _isDarkModeEnabled;
 
-  ThemeData get currentTheme => _isDarkModeEnabled ? darkTheme : lightTheme;
+  ThemeProvider() {
+    _isDarkModeEnabled = WidgetsBinding.instance.window.platformBrightness == Brightness.dark;
+  }
+
+  ThemeData get currentTheme => _isDarkModeEnabled ? ThemeData.dark() : ThemeData.light();
 
   bool get isDarkModeEnabled => _isDarkModeEnabled;
 
@@ -12,11 +16,3 @@ class ThemeProvider with ChangeNotifier {
     notifyListeners();
   }
 }
-
-final lightTheme = ThemeData(
-  brightness: Brightness.light,
-);
-
-final darkTheme = ThemeData(
-  brightness: Brightness.dark,
-);
