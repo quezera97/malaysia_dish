@@ -1,15 +1,15 @@
-import '../../enum/popularDishByState/url/johor_url.dart';
-import '../../enum/popularDishByState/url/kedah_url.dart';
-import '../../enum/popularDishByState/url/kelantan_url.dart';
-import '../../enum/popularDishByState/url/melaka_url.dart';
-import '../../enum/popularDishByState/url/nismilan_url.dart';
-import '../../enum/popularDishByState/url/pahang_url.dart';
-import '../../enum/popularDishByState/url/perak_url.dart';
-import '../../enum/popularDishByState/url/perlis__url.dart';
-import '../../enum/popularDishByState/url/pinang_url.dart';
-import '../../enum/popularDishByState/url/sabah_url.dart';
-import '../../enum/popularDishByState/url/sarawak_url.dart';
-import '../../enum/popularDishByState/url/terengganu_url.dart';
+import '../../enum/popular_dish_by_state/url/johor_url.dart';
+import '../../enum/popular_dish_by_state/url/kedah_url.dart';
+import '../../enum/popular_dish_by_state/url/kelantan_url.dart';
+import '../../enum/popular_dish_by_state/url/melaka_url.dart';
+import '../../enum/popular_dish_by_state/url/nismilan_url.dart';
+import '../../enum/popular_dish_by_state/url/pahang_url.dart';
+import '../../enum/popular_dish_by_state/url/perak_url.dart';
+import '../../enum/popular_dish_by_state/url/perlis__url.dart';
+import '../../enum/popular_dish_by_state/url/pinang_url.dart';
+import '../../enum/popular_dish_by_state/url/sabah_url.dart';
+import '../../enum/popular_dish_by_state/url/sarawak_url.dart';
+import '../../enum/popular_dish_by_state/url/terengganu_url.dart';
 
 List<String> collectAllUrls(Map<String, String> map) {
   final urls = <String>[];

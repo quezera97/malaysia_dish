@@ -157,7 +157,8 @@ Map<String, String> pinangIngredients = {
           <li>Pes perencah mee goreng</li>
           <li>Kicap manis</li>
           <li>Sos tomato</li>
-          <li>Air rebusan daging</li>
+          <li>Air rebusan d
+          aging</li>
           <li>Hirisan daging rebus</li>
           <li>2 biji telur</li>
           <li>Taugeh</li>

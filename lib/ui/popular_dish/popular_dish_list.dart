@@ -4,18 +4,18 @@ import 'package:malaysia_recipe/ui/popular_dish/popular_dish_video.dart';
 import '../../enum/malaysia_states_enum.dart';
 import '../../enum/state_popular_dish_list.dart';
 
-import '../../enum/popularDishByState/url/kedah_url.dart';
-import '../../enum/popularDishByState/url/pahang_url.dart';
-import '../../enum/popularDishByState/url/perak_url.dart';
-import '../../enum/popularDishByState/url/perlis__url.dart';
-import '../../enum/popularDishByState/url/pinang_url.dart';
-import '../../enum/popularDishByState/url/sabah_url.dart';
-import '../../enum/popularDishByState/url/sarawak_url.dart';
-import '../../enum/popularDishByState/url/terengganu_url.dart';
-import '../../enum/popularDishByState/url/kelantan_url.dart';
-import '../../enum/popularDishByState/url/nismilan_url.dart';
-import '../../enum/popularDishByState/url/johor_url.dart';
-import '../../enum/popularDishByState/url/melaka_url.dart';
+import '../../enum/popular_dish_by_state/url/kedah_url.dart';
+import '../../enum/popular_dish_by_state/url/pahang_url.dart';
+import '../../enum/popular_dish_by_state/url/perak_url.dart';
+import '../../enum/popular_dish_by_state/url/perlis__url.dart';
+import '../../enum/popular_dish_by_state/url/pinang_url.dart';
+import '../../enum/popular_dish_by_state/url/sabah_url.dart';
+import '../../enum/popular_dish_by_state/url/sarawak_url.dart';
+import '../../enum/popular_dish_by_state/url/terengganu_url.dart';
+import '../../enum/popular_dish_by_state/url/kelantan_url.dart';
+import '../../enum/popular_dish_by_state/url/nismilan_url.dart';
+import '../../enum/popular_dish_by_state/url/johor_url.dart';
+import '../../enum/popular_dish_by_state/url/melaka_url.dart';
 
 class StateDishInfo {
   final String stateName;
@@ -108,7 +108,7 @@ class _PopularDishListState extends State<PopularDishList> {
         itemCount: stateDishInfoList.length,
         itemBuilder: (context, index) {
           var stateInfo = stateDishInfoList[index];
-    
+
           return Card(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -125,11 +125,12 @@ class _PopularDishListState extends State<PopularDishList> {
                                   onTap: () {
                                     String? dishURL =
                                         stateInfo.statePopularDishUrl[dish];
-    
+
                                     if (dishURL != null) {
                                       Navigator.of(context).push(
                                         MaterialPageRoute(
-                                          builder: (context) => PopularDishVideo(
+                                          builder: (context) =>
+                                              PopularDishVideo(
                                             stateName: stateInfo.stateName,
                                             nameOfDish: dish,
                                             youtubeUrl: dishURL, // Pass the URL

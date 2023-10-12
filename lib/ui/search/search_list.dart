@@ -1,5 +1,5 @@
-import 'package:anim_search_bar/anim_search_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
 
 import '../recipe/collect_recipe.dart';
 import '../recipe/collect_url.dart';
@@ -25,8 +25,6 @@ class _SearchListState extends State<SearchList> {
     allDishUrls = getUrls();
 
     combinedIngredientsAndUrls = combineIngredientsAndUrls();
-
-    print(combinedIngredientsAndUrls);
   }
 
   List<Map<String, String>> combineIngredientsAndUrls() {
@@ -47,63 +45,65 @@ class _SearchListState extends State<SearchList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          title: const Text(''),
+        title: const Text(''),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(5),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Search',
-                  ),
-                  onChanged: (value) {
-                    setState(() {
-                      searchedValue = value;
-                    });
-                  },
-                ),
+      body: Padding(
+        padding: const EdgeInsets.all(5),
+        child: Column(children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              controller: textController,
+              decoration: InputDecoration(
+                hintText: 'Carian Masakan',
+                suffixIcon: textController.text.isNotEmpty
+                    ? IconButton(
+                        icon: const Icon(Icons.clear),
+                        onPressed: () {
+                          setState(() {
+                            textController.clear();
+                            searchedValue = '';
+                          });
+                        },
+                      )
+                    : null,
               ),
-              Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(10.5),
-                  child: Column(
-                    children: [
-                    ]
-                  ),
-                ),
-              ),
-              Expanded(
-                child: ListView.builder(
-                //   itemCount: items.length,
-                //   itemBuilder: (context, index) {
-                //     if (searchedValue.isNotEmpty &&
-                //         !items[index]
-                //             .toLowerCase()
-                //             .contains(searchedValue.toLowerCase())) {
-                //       return Container();
-                //     }
-
-                //     var splittedList = items[index].split("+");
-
-                //     if (searchedValue.isNotEmpty) {
-                      
-                //     }
-
-                //     return null;
-                //   },
-                ),
-              ),
-            ]
+              onChanged: (value) {
+                setState(() {
+                  searchedValue = value;
+                });
+              },
+            ),
           ),
-        ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: combinedIngredientsAndUrls.length,
+              itemBuilder: (context, index) {
+                final ingredients = allDishIngredients[index];
+
+                if (searchedValue.isNotEmpty &&
+                    !combinedIngredientsAndUrls[index]['ingredients']!
+                        .toLowerCase()
+                        .contains(searchedValue.toLowerCase())) {
+                  return Container();
+                }
+
+                return Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(10.5),
+                    child: ListTile(
+                      title: HtmlWidget(ingredients),
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ]),
       ),
     );
   }

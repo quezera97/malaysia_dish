@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/enum/popularDishByState/url/nismilan_url.dart';
+import 'package:malaysia_recipe/enum/popular_dish_by_state/url/nismilan_url.dart';
 import 'package:malaysia_recipe/ui/popular_dish/popular_dish_ingredient.dart';
 import 'package:malaysia_recipe/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../../enum/popularDishByState/url/melaka_url.dart';
+import '../../enum/popular_dish_by_state/url/melaka_url.dart';
 import '../../enum/popular_dish_enum.dart';
 
 class PopularDishVideo extends StatefulWidget {
@@ -30,17 +30,16 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
     // TODO: implement initState
     super.initState();
     _controller = YoutubePlayerController(
-      initialVideoId: getVideoId(widget.youtubeUrl),
-      flags: YoutubePlayerFlags(
-        autoPlay: false,
-        controlsVisibleAtStart: true,
-        mute: false,
-        startAt: getStartAt(widget.youtubeUrl),
-        loop: true,
-      )
-    );
-
+        initialVideoId: getVideoId(widget.youtubeUrl),
+        flags: YoutubePlayerFlags(
+          autoPlay: false,
+          controlsVisibleAtStart: true,
+          mute: false,
+          startAt: getStartAt(widget.youtubeUrl),
+          loop: true,
+        ));
   }
+
   String getVideoId(String videoUrl) {
     var urlToId = YoutubePlayer.convertUrlToId(videoUrl);
 
@@ -66,32 +65,31 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
   @override
   Widget build(BuildContext context) {
     return YoutubePlayerBuilder(
-      player: YoutubePlayer(
+        player: YoutubePlayer(
           controller: _controller,
-      ),
-      builder: (context, player){ 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text('${widget.nameOfDish} Dish Recipe'),
-          ),
-          body: SingleChildScrollView(
-              child: Padding(
-            padding: const EdgeInsets.all(10.5),
-            child: Column(
-              children: [
-                YoutubePlayer(
-                  controller: _controller,
-                  showVideoProgressIndicator: true,
-                  progressIndicatorColor: Colors.blueAccent,
-                ),
-                PopularDishIngredients(
-                    stateName: widget.stateName, dishName: widget.nameOfDish),
-              ],
+        ),
+        builder: (context, player) {
+          return Scaffold(
+            appBar: AppBar(
+              title: Text('${widget.nameOfDish} Dish Recipe'),
             ),
-          )),
-          floatingActionButton: FloatButtonWidget(url: widget.youtubeUrl),
-        );
-      }
-    );
+            body: SingleChildScrollView(
+                child: Padding(
+              padding: const EdgeInsets.all(10.5),
+              child: Column(
+                children: [
+                  YoutubePlayer(
+                    controller: _controller,
+                    showVideoProgressIndicator: true,
+                    progressIndicatorColor: Colors.blueAccent,
+                  ),
+                  PopularDishIngredients(
+                      stateName: widget.stateName, dishName: widget.nameOfDish),
+                ],
+              ),
+            )),
+            floatingActionButton: FloatButtonWidget(url: widget.youtubeUrl),
+          );
+        });
   }
 }

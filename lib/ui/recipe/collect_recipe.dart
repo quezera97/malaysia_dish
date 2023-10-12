@@ -1,16 +1,16 @@
-import 'package:malaysia_recipe/enum/popularDishByState/ingredients/johor_ingredients.dart';
+import 'package:malaysia_recipe/enum/popular_dish_by_state/ingredients/johor_ingredients.dart';
 
-import '../../enum/popularDishByState/ingredients/kedah_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/kelantan_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/melaka_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/nismilan_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/pahang_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/perak_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/perlis_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/pinang_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/sabah_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/sarawak_ingredients.dart';
-import '../../enum/popularDishByState/ingredients/terengganu_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/kedah_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/kelantan_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/melaka_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/nismilan_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/pahang_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/perak_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/perlis_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/pinang_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/sabah_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/sarawak_ingredients.dart';
+import '../../enum/popular_dish_by_state/ingredients/terengganu_ingredients.dart';
 
 List<String> collectAllIngredients(Map<String, String> map) {
   final ingredients = <String>[];
@@ -19,7 +19,6 @@ List<String> collectAllIngredients(Map<String, String> map) {
   });
   return ingredients;
 }
-
 
 List getIngredients() {
   var allDishIngredients = [];
