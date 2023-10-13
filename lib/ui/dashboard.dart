@@ -4,7 +4,7 @@ import 'package:malaysia_recipe/ui/search/search_list.dart';
 import 'favorite/favorite_play_list.dart';
 import 'player/player.dart';
 import 'popular_dish/popular_dish_list.dart';
-import 'popular_sweet/popular_sweet_list.dart';
+import 'popular_sweets/popular_sweets_list.dart';
 import 'recipe/recipe_list.dart';
 
 class Dashboard extends StatefulWidget {

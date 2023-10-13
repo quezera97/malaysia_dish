@@ -1,14 +1,14 @@
-import '../../popular_sweet_enum.dart';
+import '../../popular_sweets_enum.dart';
 
 Map<String, String> nismilanUrl = {
-  PopularSweetEnum.masakLemakCiliApi:
+  PopularSweetsEnum.cendolSaguRumbia:
       'https://youtu.be/5ay6OV1rkCA?si=3i4ShlNKohkGxYn3', //CheNom
-  PopularSweetEnum.rendangMinang:
+  PopularSweetsEnum.kuihApamJohol:
       'https://youtu.be/ZV-kDEF0OZU?si=qdarkVZLaj785uIG', //iCookAsia
-  PopularSweetEnum.dagingSalaiMasakLemak:
+  PopularSweetsEnum.kuihSopangKukus:
       'https://youtu.be/eTZCbwersrU?si=VSg3JYrrp6lnYAAZ', //iCookAsia
-  PopularSweetEnum.rendangAyamMaman:
+  PopularSweetsEnum.dodolPenganan:
       'https://youtu.be/C6QZg29bZOs?si=4UzXi7LHlXXGtGXQ',
-  PopularSweetEnum.rendangKepayo:
+  PopularSweetsEnum.wajik:
       'https://youtu.be/nBgZiEGuZlM?si=ClRGJS9AS59WU_O5',
 };
