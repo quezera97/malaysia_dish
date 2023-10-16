@@ -3,7 +3,8 @@ import 'package:http/http.dart';
 
 class YoutubeApi {
   Future<Map<String, dynamic>> getYoutubeDetails(String videoUrl) async {
-    final response = await get(Uri.parse("https://www.youtube.com/oembed?url=$videoUrl&format=json"));
+    final response = await get(
+        Uri.parse("https://www.youtube.com/oembed?url=$videoUrl&format=json"));
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
@@ -20,4 +21,3 @@ class YoutubeApi {
     }
   }
 }
-

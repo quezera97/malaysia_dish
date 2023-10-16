@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 
+import '../widget/animation_builder.dart';
 import 'dashboard.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -11,16 +12,27 @@ class SplashScreen extends StatefulWidget {
   State<StatefulWidget> createState() => StartState();
 }
 
-class StartState extends State<SplashScreen> {
+class StartState extends State<SplashScreen> with TickerProviderStateMixin {
   ImageProvider preloadImage = const AssetImage('lib/assets/launcher_icon.png');
+  late AnimationController animationController;
 
   @override
   void initState() {
-    super.initState();
     _startTime();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
   }
 
   _startTime() async {
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
     var duration = const Duration(seconds: 4);
     return Timer(duration, routeDashboardMain);
   }
@@ -40,10 +52,13 @@ class StartState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Image(
-                  image: preloadImage,
-                  width: 300,
-                  height: 300,
+                AnimationBuilderWidget(
+                  animationController: animationController,
+                  child: Image(
+                    image: preloadImage,
+                    height: 300,
+                    width: 300,
+                  ),
                 ),
               ],
             ),

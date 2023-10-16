@@ -5,6 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 import '../recipe/collect_recipe.dart';
 import '../recipe/collect_url.dart';
+import '../../widget/navigate_to_webview.dart';
 
 class SearchList extends StatefulWidget {
   const SearchList({super.key});
@@ -139,9 +140,15 @@ class _SearchListState extends State<SearchList> {
                       Column(
                         children: [
                           InkWell(
-                            child: const Text('Play in Youtube'),
+                            child: const Text('Play in YouTube'),
                             onTap: () {
-                              _launchUrl(url);
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => NavigateToWebView(
+                                    youtubeUrl: url,
+                                  ),
+                                ),
+                              );
                             },
                           ),
                           const SizedBox(height: 15),

@@ -22,6 +22,9 @@ class _DashboardState extends State<Dashboard> {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Malaysian Dish'),
+          leading: const Image(
+            image: AssetImage('lib/assets/launcher_icon.png'),
+          ),
           actions: <Widget>[
             Padding(
                 padding: const EdgeInsets.only(right: 20.0),

@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../api/youtube_api.dart';
+import '../../widget/animation_builder.dart';
 
 class FavoritePlayList extends StatefulWidget {
   const FavoritePlayList({Key? key}) : super(key: key);
@@ -12,16 +13,32 @@ class FavoritePlayList extends StatefulWidget {
   State<FavoritePlayList> createState() => _FavoritePlayListState();
 }
 
-class _FavoritePlayListState extends State<FavoritePlayList> {
+class _FavoritePlayListState extends State<FavoritePlayList>
+    with TickerProviderStateMixin {
   List<String> dishUrl = [];
   List<YoutubePlayerController> _controllers = [];
   var responseYoutubeApi = [];
   int indexPrefs = 0;
+  late AnimationController animationController;
 
   @override
   void initState() {
     super.initState();
     getDishUrl();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    )..repeat();
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+
+    super.dispose();
+    for (var controller in _controllers) {
+      controller.dispose();
+    }
   }
 
   Future<void> getDishUrl() async {
@@ -61,14 +78,6 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
   String getVideoId(url) {
     String? urlToId = YoutubePlayer.convertUrlToId(url);
     return urlToId ?? '';
-  }
-
-  @override
-  void dispose() {
-    super.dispose();
-    for (var controller in _controllers) {
-      controller.dispose();
-    }
   }
 
   Future<void> removeVideoFromFavorites(int index) async {
@@ -136,14 +145,13 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return const Column(
-                            children: [
-                              SizedBox(height: 10),
-                              CircularProgressIndicator(),
-                              SizedBox(height: 5),
-                              Text(''),
-                              SizedBox(height: 5),
-                            ],
+                          return AnimationBuilderWidget(
+                            animationController: animationController,
+                            child: const Image(
+                              image: AssetImage('lib/assets/launcher_icon.png'),
+                              height: 100,
+                              width: 100,
+                            ),
                           );
                         } else if (snapshot.hasError) {
                           return Text("Error: ${snapshot.error}");
@@ -165,6 +173,7 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
                                         controllers: _controllers,
                                         index: index,
                                         title: videoDetails['title'],
+                                        url: dishUrl[index],
                                       ),
                                     ),
                                   );

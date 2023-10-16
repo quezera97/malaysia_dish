@@ -6,6 +6,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../enum/popular_dish_by_state/url/melaka_url.dart';
 import '../../enum/popular_dish_enum.dart';
+import '../../widget/navigate_to_webview.dart';
 
 class PopularDishVideo extends StatefulWidget {
   const PopularDishVideo(
@@ -84,6 +85,29 @@ class _PopularDishVideoState extends State<PopularDishVideo> {
                   ),
                   PopularDishIngredients(
                       stateName: widget.stateName, dishName: widget.nameOfDish),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        child: const Text('Play in YouTube'),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => NavigateToWebView(
+                                youtubeUrl: widget.youtubeUrl,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 15),
+                    ],
+                  ),
                 ],
               ),
             )),

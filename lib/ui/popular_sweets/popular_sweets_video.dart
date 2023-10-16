@@ -5,6 +5,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../enum/popular_sweets_by_state/url/nismilan_url.dart';
 import '../../enum/popular_sweets_by_state/url/perak_url.dart';
+import '../../widget/navigate_to_webview.dart';
 import 'popular_sweets_ingredient.dart';
 
 class PopularSweetsVideo extends StatefulWidget {
@@ -54,7 +55,8 @@ class _PopularSweetsVideoState extends State<PopularSweetsVideo> {
 
     if (youtubeUrl == nismilanSweetsUrl[PopularSweetsEnum.kuihApamJohol]) {
       startAt = 66;
-    } else if (youtubeUrl == nismilanSweetsUrl[PopularSweetsEnum.kuihSopangKukus]) {
+    } else if (youtubeUrl ==
+        nismilanSweetsUrl[PopularSweetsEnum.kuihSopangKukus]) {
       startAt = 30;
     } else if (youtubeUrl == perakSweetsUrl[PopularSweetsEnum.kuihKandas]) {
       startAt = 90;
@@ -85,7 +87,31 @@ class _PopularSweetsVideoState extends State<PopularSweetsVideo> {
                     progressIndicatorColor: Colors.blueAccent,
                   ),
                   PopularSweetsIngredients(
-                      stateName: widget.stateName, sweetsName: widget.nameOfSweets),
+                      stateName: widget.stateName,
+                      sweetsName: widget.nameOfSweets),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        child: const Text('Play in YouTube'),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => NavigateToWebView(
+                                youtubeUrl: widget.youtubeUrl,
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 15),
+                    ],
+                  ),
                 ],
               ),
             )),

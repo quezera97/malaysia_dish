@@ -6,6 +6,7 @@ import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../widget/floating_action_button.dart';
 import '../player/play_random_video.dart';
+import '../../widget/navigate_to_webview.dart';
 import 'collect_recipe.dart';
 
 class RecipeList extends StatefulWidget {
@@ -87,6 +88,29 @@ class _RecipeListState extends State<RecipeList> {
                   ),
                   const SizedBox(height: 10),
                   HtmlWidget(selectedCombined['ingredients'].toString()),
+                  const Padding(
+                    padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                    child: Divider(
+                      color: Colors.grey,
+                    ),
+                  ),
+                  Column(
+                    children: [
+                      InkWell(
+                        child: const Text('Play in YouTube'),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => NavigateToWebView(
+                                youtubeUrl: selectedCombined['url'].toString(),
+                              ),
+                            ),
+                          );
+                        },
+                      ),
+                      const SizedBox(height: 15),
+                    ],
+                  ),
                 ],
               ),
             ),
