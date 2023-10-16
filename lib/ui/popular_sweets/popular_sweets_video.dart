@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:malaysia_recipe/enum/popular_sweets_enum.dart';
 import 'package:malaysia_recipe/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
+import '../../enum/popular_sweets_by_state/url/nismilan_url.dart';
+import '../../enum/popular_sweets_by_state/url/perak_url.dart';
 import 'popular_sweets_ingredient.dart';
 
 class PopularSweetsVideo extends StatefulWidget {
@@ -47,7 +50,15 @@ class _PopularSweetsVideoState extends State<PopularSweetsVideo> {
   }
 
   int getStartAt(youtubeUrl) {
-    int startAt = 0;  
+    int startAt = 0;
+
+    if (youtubeUrl == nismilanSweetsUrl[PopularSweetsEnum.kuihApamJohol]) {
+      startAt = 66;
+    } else if (youtubeUrl == nismilanSweetsUrl[PopularSweetsEnum.kuihSopangKukus]) {
+      startAt = 30;
+    } else if (youtubeUrl == perakSweetsUrl[PopularSweetsEnum.kuihKandas]) {
+      startAt = 90;
+    }
 
     return startAt;
   }

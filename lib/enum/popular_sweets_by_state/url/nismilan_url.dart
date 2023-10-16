@@ -1,6 +1,6 @@
 import '../../popular_sweets_enum.dart';
 
-Map<String, String> nismilanUrl = {
+Map<String, String> nismilanSweetsUrl = {
   PopularSweetsEnum.cendolSaguRumbia:
       'https://youtu.be/oUApJEFUhTY?si=81gM-T8VlnKGVQKQ',
   PopularSweetsEnum.kuihApamJohol:

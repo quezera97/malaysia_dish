@@ -1,6 +1,6 @@
 import '../../popular_sweets_enum.dart';
 
-Map<String, String> pahangUrl = {
+Map<String, String> pahangSweetsUrl = {
   PopularSweetsEnum.kuihBadakKubang:
       'https://youtu.be/VkWVbtLwSXw?si=SCA4zI6qaJANPcqg',
   PopularSweetsEnum.dodolKukus:

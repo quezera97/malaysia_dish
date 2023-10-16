@@ -28,51 +28,51 @@ class PopularSweetsIngredients extends StatelessWidget {
 
     if (stateName == StateEnum.johor) {
       selectedHtmlWidget = HtmlWidget(
-        johorIngredients[sweetsName]!,
+        johorSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.kedah) {
       selectedHtmlWidget = HtmlWidget(
-        kedahIngredients[sweetsName]!,
+        kedahSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.kelantan) {
       selectedHtmlWidget = HtmlWidget(
-        kelantanIngredients[sweetsName]!,
+        kelantanSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.melaka) {
       selectedHtmlWidget = HtmlWidget(
-        melakaIngredients[sweetsName]!,
+        melakaSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.nismilan) {
       selectedHtmlWidget = HtmlWidget(
-        nismilanIngredients[sweetsName]!,
+        nismilanSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.pahang) {
       selectedHtmlWidget = HtmlWidget(
-        pahangIngredients[sweetsName]!,
+        pahangSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.perak) {
       selectedHtmlWidget = HtmlWidget(
-        perakIngredients[sweetsName]!,
+        perakSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.perlis) {
       selectedHtmlWidget = HtmlWidget(
-        perlisIngredients[sweetsName]!,
+        perlisSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.pinang) {
       selectedHtmlWidget = HtmlWidget(
-        pinangIngredients[sweetsName]!,
+        pinangSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.sabah) {
       selectedHtmlWidget = HtmlWidget(
-        sabahIngredients[sweetsName]!,
+        sabahSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.sarawak) {
       selectedHtmlWidget = HtmlWidget(
-        sarawakIngredients[sweetsName]!,
+        sarawakSweetsIngredients[sweetsName]!,
       );
     } else if (stateName == StateEnum.terengganu) {
       selectedHtmlWidget = HtmlWidget(
-        terengganuIngredients[sweetsName]!,
+        terengganuSweetsIngredients[sweetsName]!,
       );
     }
 

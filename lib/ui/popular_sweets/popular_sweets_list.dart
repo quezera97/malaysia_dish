@@ -5,7 +5,7 @@ import '../../enum/malaysia_states_enum.dart';
 import '../../enum/popular_sweets_by_state/url/kedah_url.dart';
 import '../../enum/popular_sweets_by_state/url/pahang_url.dart';
 import '../../enum/popular_sweets_by_state/url/perak_url.dart';
-import '../../enum/popular_sweets_by_state/url/perlis__url.dart';
+import '../../enum/popular_sweets_by_state/url/perlis_url.dart';
 import '../../enum/popular_sweets_by_state/url/pinang_url.dart';
 import '../../enum/popular_sweets_by_state/url/sabah_url.dart';
 import '../../enum/popular_sweets_by_state/url/sarawak_url.dart';
@@ -33,62 +33,62 @@ List<StateSweetsInfo> stateSweetInfoList = [
   StateSweetsInfo(
     stateName: StateEnum.johor,
     statePopularSweets: StatePopularSweetsList.johor().sweets,
-    statePopularSweetsUrl: johorUrl,
+    statePopularSweetsUrl: johorSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.nismilan,
     statePopularSweets: StatePopularSweetsList.nismilan().sweets,
-    statePopularSweetsUrl: nismilanUrl,
+    statePopularSweetsUrl: nismilanSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.melaka,
     statePopularSweets: StatePopularSweetsList.melaka().sweets,
-    statePopularSweetsUrl: melakaUrl,
+    statePopularSweetsUrl: melakaSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.kelantan,
     statePopularSweets: StatePopularSweetsList.kelantan().sweets,
-    statePopularSweetsUrl: kelantanUrl,
+    statePopularSweetsUrl: kelantanSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.kedah,
     statePopularSweets: StatePopularSweetsList.kedah().sweets,
-    statePopularSweetsUrl: kedahUrl,
+    statePopularSweetsUrl: kedahSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.pahang,
     statePopularSweets: StatePopularSweetsList.pahang().sweets,
-    statePopularSweetsUrl: pahangUrl,
+    statePopularSweetsUrl: pahangSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.perak,
     statePopularSweets: StatePopularSweetsList.perak().sweets,
-    statePopularSweetsUrl: perakUrl,
+    statePopularSweetsUrl: perakSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.perlis,
     statePopularSweets: StatePopularSweetsList.perlis().sweets,
-    statePopularSweetsUrl: perlisUrl,
+    statePopularSweetsUrl: perlisSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.pinang,
     statePopularSweets: StatePopularSweetsList.pinang().sweets,
-    statePopularSweetsUrl: pinangUrl,
+    statePopularSweetsUrl: pinangSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.sabah,
     statePopularSweets: StatePopularSweetsList.sabah().sweets,
-    statePopularSweetsUrl: sabahUrl,
+    statePopularSweetsUrl: sabahSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.sarawak,
     statePopularSweets: StatePopularSweetsList.sarawak().sweets,
-    statePopularSweetsUrl: sarawakUrl,
+    statePopularSweetsUrl: sarawakSweetsUrl,
   ),
   StateSweetsInfo(
     stateName: StateEnum.terengganu,
     statePopularSweets: StatePopularSweetsList.terengganu().sweets,
-    statePopularSweetsUrl: terengganuUrl,
+    statePopularSweetsUrl: terengganuSweetsUrl,
   ),
 ];
 
