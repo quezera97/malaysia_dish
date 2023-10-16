@@ -1,10 +1,13 @@
 import '../../popular_sweets_enum.dart';
 
 Map<String, String> sarawakIngredients = {
-  PopularSweetsEnum.bijiSagu: """ 
+  PopularSweetsEnum.tumpikLemantak: """ 
    
     """,
   PopularSweetsEnum.kekLapisSarawak: """ 
+    
+   """,
+  PopularSweetsEnum.kekLumut: """ 
     
    """,
   PopularSweetsEnum.kuihBongkol: """

@@ -10,7 +10,7 @@ class StatePopularSweetsList {
   factory StatePopularSweetsList.johor() =>
       StatePopularSweetsList(StateEnum.johor, [
         PopularSweetsEnum.kuihAbokAbok,
-        PopularSweetsEnum.wasaiKipeng,
+        PopularSweetsEnum.wadaiKipeng,
         PopularSweetsEnum.kacauKeledek,
       ]);
 
@@ -36,7 +36,7 @@ class StatePopularSweetsList {
         PopularSweetsEnum.butirNangka,
         PopularSweetsEnum.cekMekMolek,
         PopularSweetsEnum.lompatTikam,
-        PopularSweetsEnum.tepungSerunai,
+        PopularSweetsEnum.kuihKato,
       ]);
 
   factory StatePopularSweetsList.kedah() =>
@@ -44,7 +44,7 @@ class StatePopularSweetsList {
         PopularSweetsEnum.kuihBungaPudak,
         PopularSweetsEnum.karasKedah,
         PopularSweetsEnum.kuihLoyang,
-        PopularSweetsEnum.kuiPeneram,
+        PopularSweetsEnum.kuihPeneram,
         PopularSweetsEnum.pulutKacau,
       ]);
 
@@ -62,7 +62,6 @@ class StatePopularSweetsList {
   factory StatePopularSweetsList.perlis() =>
       StatePopularSweetsList(StateEnum.perlis, [
         PopularSweetsEnum.kuihDangai,
-        PopularSweetsEnum.ringgi,
       ]);
 
   factory StatePopularSweetsList.pinang() =>
@@ -80,8 +79,9 @@ class StatePopularSweetsList {
 
   factory StatePopularSweetsList.sarawak() =>
       StatePopularSweetsList(StateEnum.sarawak, [
-        PopularSweetsEnum.bijiSagu,
+        PopularSweetsEnum.tumpikLemantak,
         PopularSweetsEnum.kekLapisSarawak,
+        PopularSweetsEnum.kekLumut,
         PopularSweetsEnum.kuihBongkol,
         PopularSweetsEnum.kuihCelorot,
       ]);
@@ -90,5 +90,6 @@ class StatePopularSweetsList {
       StatePopularSweetsList(StateEnum.terengganu, [
         PopularSweetsEnum.lepatUbiKayu,
         PopularSweetsEnum.tepungBungkus,
+        PopularSweetsEnum.kuihKayuKamak,
       ]);
 }

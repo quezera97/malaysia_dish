@@ -7,4 +7,7 @@ Map<String, String> terengganuIngredients = {
   PopularSweetsEnum.tepungBungkus: """ 
 
    """,  
+  PopularSweetsEnum.kuihKayuKamak: """ 
+
+   """,  
 };

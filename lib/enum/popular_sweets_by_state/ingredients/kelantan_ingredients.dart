@@ -13,7 +13,7 @@ Map<String, String> kelantanIngredients = {
   PopularSweetsEnum.lompatTikam: """ 
       
     """,
-  PopularSweetsEnum.tepungSerunai: """ 
+  PopularSweetsEnum.kuihKato: """ 
     
   """,
 };

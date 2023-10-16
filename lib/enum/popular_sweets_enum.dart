@@ -1,7 +1,7 @@
 class PopularSweetsEnum {
   //johor
   static String get kuihAbokAbok => 'Kuih Abok-Abok';
-  static String get wasaiKipeng => 'Wadai Kipeng';
+  static String get wadaiKipeng => 'Wadai Kipeng';
   static String get kacauKeledek => 'Kacau Keledek';
   //nismilan
   static String get cendolSaguRumbia => 'Cendol Sagu Rumbia';
@@ -18,12 +18,12 @@ class PopularSweetsEnum {
   static String get butirNangka => 'Butir Nangka';
   static String get cekMekMolek => 'Cek Mek Molek';
   static String get lompatTikam => 'Lompat Tikam';
-  static String get tepungSerunai => 'Tepung Serunai';
+  static String get kuihKato => 'Kuih Kato';
   //kedah
   static String get kuihBungaPudak => 'Kuih Bunga Pudak';
   static String get karasKedah => 'Karas Kedah';
   static String get kuihLoyang => 'Kuih Loyang';
-  static String get kuiPeneram => 'Kuih Peneram';
+  static String get kuihPeneram => 'Kuih Peneram';
   static String get pulutKacau => 'Pulut Kacau';
   //pahang
   static String get kuihBadakKubang => 'Kuih Badak Kubang';
@@ -32,7 +32,6 @@ class PopularSweetsEnum {
   static String get kuihKandas => 'Kuih Kandas';
   //perlis
   static String get kuihDangai => 'Kuih Dangai';
-  static String get ringgi => 'Ringgi';
   //penang
   static String get cendol => 'Cendol';
   static String get halwaMaskat => 'Halwa Maskat';
@@ -41,11 +40,13 @@ class PopularSweetsEnum {
   static String get sinamu => 'Mee Sinamu';
   static String get tonsomBambangan => 'tonsomBambangan';
   //sarawak
-  static String get bijiSagu => 'Biji Sagu';
+  static String get tumpikLemantak => 'Tumpik Lemantak/ Lempeng Sagu';
   static String get kekLapisSarawak => 'Kek Lapis Sarawak';
+  static String get kekLumut => 'Kek Lumut';
   static String get kuihBongkol => 'Kuih Bongkol';
   static String get kuihCelorot => 'Kuih Celorot';
   //terengganu
   static String get lepatUbiKayu => 'Lepat Ubi Kayu';
   static String get tepungBungkus => 'Tepung Bungkus';
+  static String get kuihKayuKamak => 'Kuih Kayu Kamak';
 }

@@ -10,7 +10,7 @@ Map<String, String> kedahIngredients = {
   PopularSweetsEnum.kuihLoyang: """
 
     """,
-  PopularSweetsEnum.kuiPeneram: """ 
+  PopularSweetsEnum.kuihPeneram: """ 
       
     """,
   PopularSweetsEnum.pulutKacau: """ 

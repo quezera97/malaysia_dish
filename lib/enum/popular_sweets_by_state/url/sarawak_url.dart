@@ -1,11 +1,13 @@
 import '../../popular_sweets_enum.dart';
 
 Map<String, String> sarawakUrl = {
-  PopularSweetsEnum.bijiSagu: 'https://youtu.be/wVURq4d_a10?si=Aw9vh-fY5YSub9kJ',
+  PopularSweetsEnum.tumpikLemantak: 'https://youtu.be/OhC-sUu5x_s?si=lR_GZ7gc4_fxJhy1',
   PopularSweetsEnum.kekLapisSarawak:
-      'https://youtu.be/g59vRRvv7ss?si=Mtj763W-72iwX_iS',
+      'https://youtu.be/IY3chF37vps?si=aB29Bcsmw9VMox4V',
+  PopularSweetsEnum.kekLumut:
+      'https://youtu.be/Et2Q13ROYEk?si=IXiYX0AqVx_HCW7l',
   PopularSweetsEnum.kuihBongkol:
-      'https://youtu.be/DAOrcNAM69Y?si=WJlghHiBCLuEigNA',
+      'https://youtu.be/l5QffftZ80A?si=4nWDH4n74eyOqlnQ',
   PopularSweetsEnum.kuihCelorot:
-      'https://youtu.be/OrCsrGqnEuQ?si=bYM8eeAg3SotN4ka',
+      'https://youtu.be/8ftql6raz4Y?si=GVxOqsDUY_biw0RI',
 };

@@ -4,7 +4,7 @@ Map<String, String> johorIngredients = {
   PopularSweetsEnum.kuihAbokAbok: """
 <h2>asdasd</h2>
     """,
-  PopularSweetsEnum.wasaiKipeng: """
+  PopularSweetsEnum.wadaiKipeng: """
       
     """,
   PopularSweetsEnum.kacauKeledek: """

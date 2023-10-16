@@ -2,9 +2,9 @@ import '../../popular_sweets_enum.dart';
 
 Map<String, String> melakaUrl = {
   PopularSweetsEnum.kuihKeria:
-      'https://youtu.be/zY700H2Gc4E?si=GkX0oFoZyZZNMt4_',
+      'https://youtu.be/P7I3UAOxnJk?si=TWpcwoPsbu1pVfef',
   PopularSweetsEnum.dodol:
-      'https://youtu.be/BZSoq0j_deo?si=gYcGNM1LaEDPJcYW',
+      'https://youtu.be/x8lnIysoRJw?si=6fn73LO-9AFNEJu0',
   PopularSweetsEnum.kuihChangNyonya:
-      'https://youtu.be/ziXrdZqb-Zc?si=CdyasSvBzsrUkAI3',
+      'https://youtu.be/KcLhwNd1Mhw?si=KN896NB5Ax-F-D1c',
 };

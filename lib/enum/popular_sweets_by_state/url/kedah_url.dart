@@ -2,12 +2,12 @@ import '../../popular_sweets_enum.dart';
 
 Map<String, String> kedahUrl = {
   PopularSweetsEnum.kuihBungaPudak:
-      'https://youtu.be/PrCJ-oqEQWw?si=MLxEgEVvlEFmH5OG', //CheNom
+      'https://youtu.be/y8n4LX8N7BA?si=3ox2yGQpZfJQLEKX',
   PopularSweetsEnum.karasKedah:
-      'https://youtu.be/4zmeGdGmiTs?si=XvvpNFj2kC-lu20O',
+      'https://youtu.be/UWEbg5TMCok?si=CQZqGppm5E_jk5QF',
   PopularSweetsEnum.kuihLoyang:
-      'https://youtu.be/kAS8zYouSnc?si=t61JsAIUeFjSz3GG',
-  PopularSweetsEnum.kuiPeneram:
-      'https://youtu.be/vmpXVfvJ3VY?si=vS6L0uxGNl33h_Cj',
-  PopularSweetsEnum.pulutKacau: 'https://youtu.be/CYND9rxlY6Q?si=0D1_RBpOlhq5MfbN',
+      'https://youtu.be/O_dyEP54Q04?si=ehvyVyLRiaoqlYKL',
+  PopularSweetsEnum.kuihPeneram:
+      'https://youtu.be/9vZ18Ww_upc?si=-iiwdEl-xyZk5heN',
+  PopularSweetsEnum.pulutKacau: 'https://youtu.be/H74oL8B-Jmg?si=ZgZ3iNXtK-mdvpEo',
 };

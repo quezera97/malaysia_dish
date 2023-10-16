@@ -4,7 +4,4 @@ Map<String, String> perlisIngredients = {
   PopularSweetsEnum.kuihDangai: """ 
 
     """,
-  PopularSweetsEnum.ringgi: """ 
-    
-   """,
 };
