@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'ui/dashboard.dart';
+import 'ui/splash_screen.dart';
 import 'widget/theme_provider.dart';
 
 void main() {
@@ -24,7 +24,9 @@ class MyApp extends StatelessWidget {
       title: 'Malaysian Dish',
       debugShowCheckedModeBanner: false,
       theme: themeProvider.currentTheme,
-      home: const Dashboard(),
+      routes: {
+        '/': (context) => const SplashScreen(),
+      },
     );
   }
 }

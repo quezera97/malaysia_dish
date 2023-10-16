@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';
+import 'package:html/parser.dart' as html;
+import 'package:url_launcher/url_launcher.dart';
 
 import '../recipe/collect_recipe.dart';
 import '../recipe/collect_url.dart';
@@ -41,6 +43,27 @@ class _SearchListState extends State<SearchList> {
     return combinedList;
   }
 
+  String getDishNameFromIngredients(String ingredients) {
+    final document = html.parse(ingredients);
+    final h2Elements = document.getElementsByTagName('h2');
+
+    if (h2Elements.isNotEmpty) {
+      var dishName = h2Elements[0].text;
+      dishName = dishName.replaceAll(':', '');
+
+      return dishName;
+    }
+
+    return '';
+  }
+
+  Future<void> _launchUrl(url) async {
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch $url');
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -55,7 +78,7 @@ class _SearchListState extends State<SearchList> {
             child: TextField(
               controller: textController,
               decoration: InputDecoration(
-                hintText: 'Carian Masakan',
+                hintText: 'Search for Dish, Sweets & Ingredients',
                 suffixIcon: textController.text.isNotEmpty
                     ? IconButton(
                         icon: const Icon(Icons.clear),
@@ -80,11 +103,11 @@ class _SearchListState extends State<SearchList> {
               itemCount: combinedIngredientsAndUrls.length,
               itemBuilder: (context, index) {
                 final ingredients = allDishIngredients[index];
+                final url = allDishUrls[index];
+                final dishName = getDishNameFromIngredients(ingredients);
 
                 if (searchedValue.isNotEmpty &&
-                    !combinedIngredientsAndUrls[index]['ingredients']!
-                        .toLowerCase()
-                        .contains(searchedValue.toLowerCase())) {
+                    !dishName.toLowerCase().contains(searchedValue.toLowerCase())) {
                   return Container();
                 }
 
@@ -93,11 +116,24 @@ class _SearchListState extends State<SearchList> {
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
                   ),
-                  child: Padding(
-                    padding: const EdgeInsets.all(10.5),
-                    child: ListTile(
-                      title: HtmlWidget(ingredients),
-                    ),
+                  child: ExpansionTile(
+                    title: Text(dishName),
+                    children: [
+                      Column(
+                        children: [
+                          InkWell(
+                            child: const Text('Play in Youtube'),
+                            onTap: () {
+                              _launchUrl(url);
+                            },
+                          ),
+                        ],
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10.5),
+                        child: HtmlWidget(ingredients),
+                      ),
+                    ],
                   ),
                 );
               },

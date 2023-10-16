@@ -1,0 +1,36 @@
+1. set icon (just use flutter_launcher_icons)
+2. remove exampe from com.example.name_of_app
+3. keytool -genkey -v -keystore .\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload at cmd
+4. put the keystore at android/app file
+5, create key.properties file under android
+
+storePassword=<password-from-previous-step>
+keyPassword=<password-from-previous-step>
+keyAlias=upload
+storeFile=upload-keystore.jks
+
+
+6.    def keystoreProperties = new Properties()
+   def keystorePropertiesFile = rootProject.file('key.properties')
+   if (keystorePropertiesFile.exists()) {
+       keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+   }
+
+   android {
+         ...
+   }
+7.    signingConfigs {
+       release {
+           keyAlias keystoreProperties['keyAlias']
+           keyPassword keystoreProperties['keyPassword']
+           storeFile keystoreProperties['storeFile'] ? file(keystoreProperties['storeFile']) : null
+           storePassword keystoreProperties['storePassword']
+       }
+   }
+   buildTypes {
+       release {
+           signingConfig signingConfigs.release
+       }
+   }
+
+7. change android:label (name of the app)

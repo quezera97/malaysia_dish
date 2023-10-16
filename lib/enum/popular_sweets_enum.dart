@@ -10,7 +10,7 @@ class PopularSweetsEnum {
   static String get dodolPenganan => 'Dodol Penganan';
   static String get wajik => 'Wajik';
   //melaka
-  static String get kuihKeria => 'Asam Pedas';
+  static String get kuihKeria => 'Kuih Keria';
   static String get dodol => 'Dodol';
   static String get kuihChangNyonya => 'Kuih Chang Nyonya';
   //kelantan

@@ -76,7 +76,7 @@ Map<String, String> pinangIngredients = {
     </ul>
     """,
   PopularDishEnum.charKueyTeow: """ 
-    <h2> Anggaran hidangan untuk 5 orang</h2>
+    <h4> Anggaran hidangan untuk 5 orang</h4>
 
     <h5>Bahan-bahan kisar halus (A):</h5>
     <ul>
