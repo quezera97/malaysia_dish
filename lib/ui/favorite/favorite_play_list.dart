@@ -28,7 +28,7 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     setState(() {
       dishUrl = prefs.getStringList('dishUrl') ?? [];
-      
+
       _controllers = dishUrl.map((videoUrl) {
         return YoutubePlayerController(
           initialVideoId: getVideoId(videoUrl),
@@ -86,7 +86,7 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
 
   @override
   Widget build(BuildContext context) {
-    final snackBar = SnackBar(
+    final snackBarDelete = SnackBar(
       content: const Text('Delete from favorite'),
       action: SnackBarAction(
         label: 'Yes!',
@@ -96,99 +96,117 @@ class _FavoritePlayListState extends State<FavoritePlayList> {
       ),
     );
 
-    if(_controllers.isEmpty){
+    const snackBarRefresh = SnackBar(
+      content: Text('Page Refreshed'),
+      duration: Duration(seconds: 1),
+      showCloseIcon: true,
+    );
+
+    if (_controllers.isEmpty) {
       return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(
-              height: 100,
-              width: 100,
-              child: Image.asset('lib/assets/no-love.png'),
-            ),
-            const SizedBox(height: 10),
-            const Text('No favorites available!'),
-          ],
-        )
-      );
-    }
-    else{
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Image.asset('lib/assets/no-love.png'),
+          ),
+          const SizedBox(height: 10),
+          const Text('No favorites available!'),
+        ],
+      ));
+    } else {
       return Scaffold(
         body: Padding(
           padding: const EdgeInsets.all(5.0),
-          child: ListView.separated(
-            itemCount: _controllers.length,
-            separatorBuilder: (context, _) => const SizedBox(height: 5.0),
-            itemBuilder: (context, index) {
-              return Card(
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: FutureBuilder(
-                  future: callYoutubeApi(dishUrl[index]),
-                  builder: (context, snapshot) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return Column(
-                        children: const [
-                          SizedBox(height: 5),
-                          CircularProgressIndicator(),
-                          SizedBox(height: 5),
-                          Text(''),
-                          SizedBox(height: 5),
-                        ],
-                      );
-                    } else if (snapshot.hasError) {
-                      return Text("Error: ${snapshot.error}");
-                    } else {
-                      var videoDetails = snapshot.data;
-                      return SizedBox(
-                        height: 90,
-                        child: ListTile(
-                          contentPadding: const EdgeInsets.all(10),
-                          leading: InkWell(
-                            child: Image.network(
-                              videoDetails!['thumbnailUrl'],
-                              fit: BoxFit.cover,
-                            ),
-                            onTap: () {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => FavoritePlayer(
-                                    controllers: _controllers, 
-                                    index: index,
-                                    title: videoDetails['title'],
-                                  ),
+          child: RefreshIndicator(
+              child: ListView.separated(
+                itemCount: _controllers.length,
+                physics: const AlwaysScrollableScrollPhysics(),
+                separatorBuilder: (context, _) => const SizedBox(height: 5.0),
+                itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 5,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: FutureBuilder(
+                      future: callYoutubeApi(dishUrl[index]),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const Column(
+                            children: [
+                              SizedBox(height: 10),
+                              CircularProgressIndicator(),
+                              SizedBox(height: 5),
+                              Text(''),
+                              SizedBox(height: 5),
+                            ],
+                          );
+                        } else if (snapshot.hasError) {
+                          return Text("Error: ${snapshot.error}");
+                        } else {
+                          var videoDetails = snapshot.data;
+                          return SizedBox(
+                            height: 90,
+                            child: ListTile(
+                              contentPadding: const EdgeInsets.all(10),
+                              leading: InkWell(
+                                child: Image.network(
+                                  videoDetails!['thumbnailUrl'],
+                                  fit: BoxFit.cover,
                                 ),
-                              );
-                            },
-                          ),
-                          title: Text(
-                            videoDetails['title'],
-                            maxLines: 2,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          subtitle: Text(
-                            videoDetails['authorName'],
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                          ),
-                          trailing: IconButton(
-                            icon: const Icon(Icons.more_vert),
-                            onPressed: () {
-                              indexPrefs = index;
+                                onTap: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute(
+                                      builder: (context) => FavoritePlayer(
+                                        controllers: _controllers,
+                                        index: index,
+                                        title: videoDetails['title'],
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              title: Text(
+                                videoDetails['title'],
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              subtitle: Text(
+                                videoDetails['authorName'],
+                                maxLines: 1,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              trailing: IconButton(
+                                icon: const Icon(Icons.more_vert),
+                                onPressed: () {
+                                  indexPrefs = index;
 
-                              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                            },
-                          ),
-                        ),
-                      );
-                    }
+                                  ScaffoldMessenger.of(context)
+                                      .showSnackBar(snackBarDelete);
+                                },
+                              ),
+                            ),
+                          );
+                        }
+                      },
+                    ),
+                  );
+                },
+              ),
+              onRefresh: () {
+                return Future.delayed(
+                  const Duration(seconds: 1),
+                  () async {
+                    await getDishUrl();
+                    // ignore: use_build_context_synchronously
+                    ScaffoldMessenger.of(context).showSnackBar(snackBarRefresh);
                   },
-                ),
-              );
-            },
-          ),
+                );
+              }),
         ),
       );
     }

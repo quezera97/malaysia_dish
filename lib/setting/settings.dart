@@ -48,6 +48,18 @@ class _SettingsState extends State<Settings> {
                       width: 200,
                     ),
                   ),
+                  const Center(
+                    child: ListTile(
+                      title: Center(
+                        child: Text(
+                          'Build Version: 1.0.0',
+                          style: TextStyle(fontSize: 16.0),
+                          textAlign: TextAlign.left,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 10),
                   Card(
                     elevation: 5,
                     shape: RoundedRectangleBorder(
@@ -56,7 +68,8 @@ class _SettingsState extends State<Settings> {
                     child: ListTile(
                       title: const Text('Theme Mode'),
                       trailing: DayNightSwitcher(
-                        isDarkModeEnabled: context.read<ThemeProvider>().isDarkModeEnabled,
+                        isDarkModeEnabled:
+                            context.read<ThemeProvider>().isDarkModeEnabled,
                         onStateChanged: (value) {
                           context.read<ThemeProvider>().toggleTheme();
                         },
@@ -126,23 +139,6 @@ class _SettingsState extends State<Settings> {
                     ),
                   ),
                 ],
-              ),
-            ),
-            Positioned(
-              bottom: 0,
-              left: 0,
-              right: 0,
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                child: const Center(
-                  child: Text(
-                    'Build Version: 1.0.0',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Color.fromARGB(255, 70, 70, 70),
-                    ),
-                  ),
-                ),
               ),
             ),
           ],

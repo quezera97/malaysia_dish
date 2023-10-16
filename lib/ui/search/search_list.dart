@@ -57,12 +57,17 @@ class _SearchListState extends State<SearchList> {
     return '';
   }
 
-  Future<void> _launchUrl(url) async {
-    if (!await launchUrl(url)) {
-      throw Exception('Could not launch $url');
+  Future<void> _launchUrl(String text) async {
+    final urlPattern = RegExp(r'https://[^\s]+');
+    final match = urlPattern.firstMatch(text);
+
+    if (match != null) {
+      final url = match.group(0);
+      if (!await launchUrl(Uri.parse(url!))) {
+        throw Exception('Could not launch $url');
+      }
     }
   }
-
 
   @override
   Widget build(BuildContext context) {
@@ -107,7 +112,9 @@ class _SearchListState extends State<SearchList> {
                 final dishName = getDishNameFromIngredients(ingredients);
 
                 if (searchedValue.isNotEmpty &&
-                    !dishName.toLowerCase().contains(searchedValue.toLowerCase())) {
+                    !dishName
+                        .toLowerCase()
+                        .contains(searchedValue.toLowerCase())) {
                   return Container();
                 }
 
@@ -119,6 +126,16 @@ class _SearchListState extends State<SearchList> {
                   child: ExpansionTile(
                     title: Text(dishName),
                     children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10.5),
+                        child: HtmlWidget(ingredients),
+                      ),
+                      const Padding(
+                        padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                        child: Divider(
+                          color: Colors.grey,
+                        ),
+                      ),
                       Column(
                         children: [
                           InkWell(
@@ -127,11 +144,8 @@ class _SearchListState extends State<SearchList> {
                               _launchUrl(url);
                             },
                           ),
+                          const SizedBox(height: 15),
                         ],
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(10.5),
-                        child: HtmlWidget(ingredients),
                       ),
                     ],
                   ),

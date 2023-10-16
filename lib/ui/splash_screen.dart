@@ -12,7 +12,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class StartState extends State<SplashScreen> {
-
   ImageProvider preloadImage = const AssetImage('lib/assets/launcher_icon.png');
 
   @override
@@ -43,8 +42,8 @@ class StartState extends State<SplashScreen> {
               children: [
                 Image(
                   image: preloadImage,
-                  width: 250,
-                  height: 250,
+                  width: 300,
+                  height: 300,
                 ),
               ],
             ),

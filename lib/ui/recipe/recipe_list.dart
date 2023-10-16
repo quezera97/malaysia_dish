@@ -38,10 +38,10 @@ class _RecipeListState extends State<RecipeList> {
     _controller = YoutubePlayerController(
       initialVideoId: getVideoId(selectedCombined['url'].toString()),
       flags: const YoutubePlayerFlags(
-        hideControls: true,
-        autoPlay: true,
+        autoPlay: false,
         mute: false,
         loop: true,
+        controlsVisibleAtStart: true,
       ),
     );
   }
@@ -85,7 +85,7 @@ class _RecipeListState extends State<RecipeList> {
                     showVideoProgressIndicator: true,
                     progressIndicatorColor: Colors.blueAccent,
                   ),
-                  const SizedBox(height: 10), 
+                  const SizedBox(height: 10),
                   HtmlWidget(selectedCombined['ingredients'].toString()),
                 ],
               ),
@@ -93,7 +93,8 @@ class _RecipeListState extends State<RecipeList> {
           ),
         ),
       ),
-      floatingActionButton: FloatButtonWidget(url: selectedCombined['url'].toString()),
+      floatingActionButton:
+          FloatButtonWidget(url: selectedCombined['url'].toString()),
     );
   }
 }

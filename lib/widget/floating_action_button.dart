@@ -63,6 +63,7 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
           borderRadius: BorderRadius.circular(25.0),
         ),
         onPressed: () {
+          checkExistingUrl();
           showModalBottomSheet<void>(
             context: context,
             builder: (BuildContext context) {
@@ -89,8 +90,10 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                     ),
                   ] else ...[
                     ListTile(
-                      leading: const Icon(Icons.favorite, color: Colors.redAccent),
-                      title: const Text('Add to Favorites', style: TextStyle(fontWeight: FontWeight.bold)),
+                      leading:
+                          const Icon(Icons.favorite, color: Colors.redAccent),
+                      title: const Text('Add to Favorites',
+                          style: TextStyle(fontWeight: FontWeight.bold)),
                       onTap: () {
                         if (widget.url != null) {
                           addToFav(widget.url);
@@ -106,7 +109,8 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                   ],
                   ListTile(
                     leading: const Icon(Icons.share, color: Colors.black),
-                    title: const Text('Share', style: TextStyle(fontWeight: FontWeight.bold)),
+                    title: const Text('Share',
+                        style: TextStyle(fontWeight: FontWeight.bold)),
                     onTap: () {
                       if (widget.url != null) {
                         Share.share(widget.url!);
@@ -114,21 +118,6 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
                       Navigator.pop(context);
                     },
                   ),
-                  // ListTile(
-                  //   leading: const Icon(Icons.download, color: Colors.black),
-                  //   title: const Text('Download', style: TextStyle(fontWeight: FontWeight.bold)),
-                  //   onTap: () {
-                  //     if (widget.url != null) {
-                  //       // downloadVideo();
-                  //     }
-                  //   },
-                  // ),
-                  ListTile(
-                    title: const Text('Remove Prefs'),
-                    onTap: () async {
-                      await _prefs.remove('dishUrl');
-                    },
-                  )
                 ],
               );
             },
