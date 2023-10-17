@@ -39,10 +39,11 @@ class _RecipeListState extends State<RecipeList> {
     _controller = YoutubePlayerController(
       initialVideoId: getVideoId(selectedCombined['url'].toString()),
       flags: const YoutubePlayerFlags(
-        autoPlay: false,
+        autoPlay: true,
         mute: false,
         loop: true,
-        controlsVisibleAtStart: true,
+        hideControls: true,
+        disableDragSeek: false,
       ),
     );
   }

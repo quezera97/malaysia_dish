@@ -21,7 +21,7 @@ class _DashboardState extends State<Dashboard> {
       length: 4,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Malaysian Dish'),
+          title: const Text('Malaysia Dish'),
           leading: const Image(
             image: AssetImage('lib/assets/launcher_icon.png'),
           ),
@@ -75,8 +75,8 @@ class _DashboardState extends State<Dashboard> {
           bottom: const TabBar(
             isScrollable: true,
             tabs: <Widget>[
-              Tab(text: 'State Dish'),
-              Tab(text: 'State Sweets'),
+              Tab(text: 'Dish'),
+              Tab(text: 'Desserts'),
               Tab(text: 'Random Recipe'),
               Tab(text: 'Favorite'),
             ],

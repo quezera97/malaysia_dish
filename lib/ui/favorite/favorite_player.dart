@@ -30,7 +30,7 @@ class _FavoritePlayerState extends State<FavoritePlayer> {
         builder: (context, player) {
           return Scaffold(
             appBar: AppBar(
-              title: const Text('Malaysian Dish'),
+              title: const Text(''),
             ),
             body: SingleChildScrollView(
               child: Padding(

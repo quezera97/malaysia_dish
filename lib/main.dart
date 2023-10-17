@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final themeProvider = Provider.of<ThemeProvider>(context);
     return MaterialApp(
-      title: 'Malaysian Dish',
+      title: 'Malaysia Dish',
       debugShowCheckedModeBanner: false,
       theme: themeProvider.currentTheme,
       routes: {

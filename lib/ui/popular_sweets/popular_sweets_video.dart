@@ -74,7 +74,7 @@ class _PopularSweetsVideoState extends State<PopularSweetsVideo> {
         builder: (context, player) {
           return Scaffold(
             appBar: AppBar(
-              title: Text('${widget.nameOfSweets} Sweets Recipe'),
+              title: Text('${widget.nameOfSweets} Desserts Recipe'),
             ),
             body: SingleChildScrollView(
                 child: Padding(
