@@ -32,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.malaysia_recipe"
+    namespace = "com.malaysia.recipe"
     compileSdkVersion 34
     ndkVersion flutter.ndkVersion
 
