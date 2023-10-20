@@ -56,7 +56,6 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 110,
       child: FloatingActionButton(
         backgroundColor: Colors.redAccent,
         shape: RoundedRectangleBorder(
@@ -123,7 +122,7 @@ class _FloatButtonWidgetState extends State<FloatButtonWidget> {
             },
           );
         },
-        child: const Text('Add To Fav!'),
+        child: const Icon(Icons.favorite, color: Colors.white),
       ),
     );
   }

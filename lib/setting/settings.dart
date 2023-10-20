@@ -16,7 +16,7 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  final String packageName = 'com.malaysia.recipe';
+  final String packageName = 'com.malaysia.dish';
 
   Future<void> _shareApp() async {
     String url = 'https://play.google.com/store/apps/details?id=$packageName';
