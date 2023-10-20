@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/ui/popular_dish/popular_dish_video.dart';
+import 'package:malaysia_dish/ui/popular_dish/popular_dish_video.dart';
 
 import '../../enum/malaysia_states_enum.dart';
 import '../../enum/state_popular_dish_list.dart';

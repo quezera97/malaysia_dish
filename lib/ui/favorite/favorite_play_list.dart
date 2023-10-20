@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/ui/favorite/favorite_player.dart';
+import 'package:malaysia_dish/ui/favorite/favorite_player.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 

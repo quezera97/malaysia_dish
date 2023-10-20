@@ -1,12 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 xmlns:tools="http://schemas.android.com/tools"
-    package="com.malaysia_recipe">
+    package="com.malaysia_dish">
     <uses-permission android:name="android.permission.INTERNET"/>
    <application
    tools:replace="android:label" 
         android:requestLegacyExternalStorage="true"
         
-        android:label="Malaysia Recipe"
+        android:label="Malaysia Dish"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

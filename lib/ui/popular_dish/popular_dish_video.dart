@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/enum/popular_dish_by_state/url/nismilan_url.dart';
-import 'package:malaysia_recipe/ui/popular_dish/popular_dish_ingredient.dart';
-import 'package:malaysia_recipe/widget/floating_action_button.dart';
+import 'package:malaysia_dish/enum/popular_dish_by_state/url/nismilan_url.dart';
+import 'package:malaysia_dish/ui/popular_dish/popular_dish_ingredient.dart';
+import 'package:malaysia_dish/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../enum/popular_dish_by_state/url/melaka_url.dart';

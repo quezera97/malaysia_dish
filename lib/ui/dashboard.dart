@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/setting/settings.dart';
-import 'package:malaysia_recipe/ui/search/search_list.dart';
+import 'package:malaysia_dish/setting/settings.dart';
+import 'package:malaysia_dish/ui/search/search_list.dart';
 import 'favorite/favorite_play_list.dart';
 import 'player/player.dart';
 import 'popular_dish/popular_dish_list.dart';

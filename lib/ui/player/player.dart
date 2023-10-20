@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/widget/floating_action_button.dart';
+import 'package:malaysia_dish/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 import 'package:anim_search_bar/anim_search_bar.dart';
 

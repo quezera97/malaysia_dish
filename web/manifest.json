@@ -1,6 +1,6 @@
 {
-    "name": "malaysia_recipe",
-    "short_name": "malaysia_recipe",
+    "name": "malaysia_dish",
+    "short_name": "malaysia_dish",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:malaysia_recipe/enum/popular_sweets_enum.dart';
-import 'package:malaysia_recipe/widget/floating_action_button.dart';
+import 'package:malaysia_dish/enum/popular_sweets_enum.dart';
+import 'package:malaysia_dish/widget/floating_action_button.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../enum/popular_sweets_by_state/url/nismilan_url.dart';

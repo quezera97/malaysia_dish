@@ -1,5 +1,5 @@
 1. set icon (just use flutter_launcher_icons)
-2. remove exampe from com.example.name_of_app
+2. remove example from com.example.name_of_app
 3. keytool -genkey -v -keystore .\upload-keystore.jks -storetype JKS -keyalg RSA -keysize 2048 -validity 10000 -alias upload at cmd
 4. put the keystore at android/app file
 5, create key.properties file under android
